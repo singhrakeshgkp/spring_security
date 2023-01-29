@@ -24,5 +24,5 @@
 ### Configure Role based Authorization using request matcher - SpringSecurity-3
 - ```requestMatchers("/greet","/hello")``` -> resource should be accessible by all(authenticated and unauthenticated) users
 - ```.requestMatchers("/customer/**").hasAnyAuthority("ADMIN","USER")``` -> Should be accessible by user having Admin or user role
-- ```.requestMatchers("/adminsectionabc/**").hasAnyAuthority("ADMIN")``` -> should be accessible by user having admin role only.
+- ```.requestMatchers("/banklist/**").hasAnyAuthority("ADMIN")``` -> should be accessible by user having admin role only.
  
