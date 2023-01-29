@@ -18,4 +18,8 @@
   - Configure role on top of your resource using ```@PreAuthorize("hasAuthority('ROLE_ADMIN')")``` annotation
   
  ### Get User Details from DB- SpringSecurity-2
+ - Role based access
+ - Configured allowed roles using expression based access control ``` @PreAuthorize("hasAnyAuthority('USER','ADMIN')") ```
+ 
+### 
  
