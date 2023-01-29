@@ -1,6 +1,6 @@
 
 # Spring Boot Security
-### Enabling Spring boot Security - SpringSecurity-1
+### Enabling Spring boot Security - SpringSecurity-1 using form based login
 - Create new spring boot project with spring web, spring security, thymleaf and lombock dependencies.
 - Create controller and try to access any resource, by default spring will redirect you on login page.
 - Enter the defalt user name which is ```user``` and password from console(it is auto generated password)
@@ -17,12 +17,13 @@
   - Annotate the config class with ```@EnableMethodSecurity``` annotation
   - Configure role on top of your resource using ```@PreAuthorize("hasAuthority('ROLE_ADMIN')")``` annotation
   
- ### Get User Details from DB- SpringSecurity-2
+ ### Get User Details from DB- SpringSecurity-2 using form based login
  - Role based access
  - Configured allowed roles using expression based access control ``` @PreAuthorize("hasAnyAuthority('USER','ADMIN')") ```
  
-### Configure Role based Authorization using request matcher - SpringSecurity-3
+### Configure Role based Authorization using request matcher - SpringSecurity-3 using form based login
 - ```requestMatchers("/greet","/hello")``` -> resource should be accessible by all(authenticated and unauthenticated) users
 - ```.requestMatchers("/customer/**").hasAnyAuthority("ADMIN","USER")``` -> Should be accessible by user having Admin or user role
 - ```.requestMatchers("/banklist/**").hasAnyAuthority("ADMIN")``` -> should be accessible by user having admin role only.
  
+### Configure Role based Authorization using request matcher - SpringSecurity-4 Securing rest apis
