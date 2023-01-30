@@ -26,4 +26,19 @@
 - ```.requestMatchers("/customer/**").hasAnyAuthority("ADMIN","USER")``` -> Should be accessible by user having Admin or user role
 - ```.requestMatchers("/banklist/**").hasAnyAuthority("ADMIN")``` -> should be accessible by user having admin role only.
  
-### Configure Role based Authorization using request matcher - SpringSecurity-4 Securing rest apis
+### Configure SSL - SpringSecurity-4 
+- copyt springsecurity-3 proj
+- Generate self signed certificate (on prod instead of using self signed cert buy it from trusted provider)
+  - Go to your jdk bin installation directory and open command.
+  - Run the below command from command prompt to generate the certificate.
+    ```.\keytool -genkey -alias sslspring -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore sslspring.p12 -validity 3650```
+  - copy the generated certificate to your application class path (resources folder). while generating the cert i used welcome123 pwd.
+- Add following properties in application.properties file
+  ```
+  server.ssl.enabled=true
+  server.ssl.key-store=src/main/resources/sslspring.p12
+  server.ssl.key-store-password=welcome123
+  server.ssl.key-store-type=PKCS12
+  server.ssl.key-alias=sslspring
+
+  ```
