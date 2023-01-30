@@ -42,3 +42,6 @@
   server.ssl.key-alias=sslspring
 
   ```
+### Custom Login page and logout functionality - SpringSecurity-5
+### Customize Login Form control and implementing remember me functionality-6
+### Securing application using JWT (json web token) token
