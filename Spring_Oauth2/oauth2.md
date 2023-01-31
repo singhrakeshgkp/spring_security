@@ -39,6 +39,25 @@
       "redirect_uri":"https://springone.io/authorized"
       "code_verifier":"code verifier passed while getting the authorization code"
       ```
-  - In case if you are not able to get jwt(access) token, i mean u get some error you have to generate authorization code again, it can be used only once.
+  - In case if you are not able to get jwt(access) token, i mean u get some error you have to generate authorization code again, as it can be used only once.
    
-
+###### Customizing  token
+- we can customize jwt token, we can add the fields as per our need that field will be part of jwt token.
+  - To customize jwt token configure following bean in your config class.
+    ```
+  	@Bean
+	public OAuth2TokenCustomizer<JwtEncodingContext> customizer(){
+		return context->{
+			context.getClaims().claim("demo", "demo123");
+		};
+	}
+    ```
+  - start your application, generate the jwt token and verify if field present in token.
+- Cutomizing token type (from non-opaque to opaque) and token time to live value
+  - Use the below code snipped to customize toen type and token TTL value.
+    ```
+    	.tokenSettings(TokenSettings.builder()
+	   .accessTokenTimeToLive(Duration.ofSeconds(800))
+	   .accessTokenFormat(OAuth2TokenFormat.REFERENCE)
+	   .build())
+    ```
