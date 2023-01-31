@@ -41,7 +41,7 @@
       ```
   - In case if you are not able to get jwt(access) token, i mean u get some error you have to generate authorization code again, as it can be used only once.
    
-###### Customizing  token
+#### Customizing  token
 - we can customize jwt token, we can add the fields as per our need that field will be part of jwt token.
   - To customize jwt token configure following bean in your config class.
     ```
