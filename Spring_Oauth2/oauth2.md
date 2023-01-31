@@ -21,4 +21,24 @@
 		</dependency>
   ```
 - Create a new config class ```AuthServerConfig.java``` and configure the required beans.
+- <b>Testing Oauth2 application</b>
+  - Generate code verifier and code challenge hash using any online PKCE generator such as ```https://example-app.com/pkce```
+  - Append client id, code verifier, code challenge and authorization type in below url
+   ```
+   http://localhost:8080/oauth2/authorize?response_type=code&client_id=client1&scope=openid&redirect_uri=https://springone.io/authorized&code_challenge=y3jlyQ-YikWE5KLClCGlLoGJ3BulHDZitaJK7MQFByc&code_verifier=a06658bc1197e48494b6305e4ad074c8c08e1b22b316e2c1c5eb0562&code_challenge_method=S256
+
+   ```
+  - It will redirect you on login page, enter your credential and continue to login
+  - Authorization code will be generated, you can copy it from url.
+  - Now make a post request to get the access token
+    - URL ```http://localhost:8080/oauth2/token```
+    - Authentication - basic with client id and client secret and with following parameters
+      ```
+      "grant_type":"authorization_code"
+      "code":"authorization code received from auth server"
+      "redirect_uri":"https://springone.io/authorized"
+      "code_verifier":"code verifier passed while getting the authorization code"
+      ```
+  - In case if you are not able to get jwt(access) token, i mean u get some error you have to generate authorization code again, it can be used only once.
+   
 
