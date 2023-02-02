@@ -66,4 +66,19 @@
 # Configure AuthServer(oauth2-server-proj2) with database credential
 - create a database and two tables ```user``` and ```client`` in it
 - add mysql connector and spring data jpa dependency
-- 
+- Crete entity classes
+- Create repository class ```UserRepo.java``` and ```ClientRepo.java```
+- Create ```UserDetailsServiceImpl.java``` class, this class should implement ```UserDetailsService(core spring security)``` interface.
+- create new ```UserDetailsAuthServerModel.java``` class implementing UserDettails (from core security) interface.
+- delete following bean from config class
+  ```
+   @Bean
+	public UserDetailsService userDetailsService() {
+		var user = User.withUsername("testuser")
+					   .password("12345")
+					   .authorities("read")
+					   .build();
+		var userDetailsservice = new InMemoryUserDetailsManager(user);
+		return userDetailsservice;
+	}
+  ```
