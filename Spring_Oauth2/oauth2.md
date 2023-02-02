@@ -1,9 +1,10 @@
-# Oauth2 Integration
+# Oauth2
 
 ### About OAuth2
 - Oauth2 high level [diagram](/spring_security/Spring_Oauth2/oauth2_highlevel_diagram.jpg)
 - Oauth2 sequence [diagram](/spring_security/Spring_Oauth2/oauth2_sequence_diagram.jpg)
 - Oauth server and resource server can be in the same application, ony drawback of this approach will be that you wont be able to scale individual service horizontally.
+- ```http://localhost:8080/.well-known/openid-configuration``` Endpoints returns various endpoints and configuraton details.
 - Token can be two types
   - Opeque - it do not contains any data
   - non-Opeque- it contains data, JWP implementatio uses non-opeque based token
@@ -11,7 +12,8 @@
   - <b>Q. How does resource server verify if token is valid? </b>
   - Ans. This is because the token is signed and resource server will have key that can validate the signature. this happens only in case of non-opeque toke, if token is type of opeque resource server will call /introspection endpoint defined on authorization server.
 
-### Configure AuthServer with Inmemory Credential
+# Configure AuthServer(oauth2-server-proj1) with Inmemory Credential
+
 - Create new spring starter project with sping web and oauth2 dependency
   ```
   <dependency>
@@ -61,3 +63,7 @@
 	   .accessTokenFormat(OAuth2TokenFormat.REFERENCE)
 	   .build())
     ```
+# Configure AuthServer(oauth2-server-proj2) with database credential
+- create a database and two tables ```user``` and ```client`` in it
+- add mysql connector and spring data jpa dependency
+- 
