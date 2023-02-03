@@ -87,3 +87,10 @@
 - provide the requred database properties in application.properties file and start the application
 - Test the application same way as we tested with in memory credential.
 
+# Configure resource server
+- Create new spring boot project with ```sping web, security, and resource server``` dependency
+- Create a config class, configure SecurityFilterChain bean in it.
+- Configure the jwk uri in resource server configuration. JWK uri can be found on ```http://localhost:8080/.well-known/openid-configuration``` end point of auth server.
+- Now test the application
+###
+
