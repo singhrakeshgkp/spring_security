@@ -92,5 +92,15 @@
 - Create a config class, configure SecurityFilterChain bean in it.
 - Configure the jwk uri in resource server configuration. JWK uri can be found on ```http://localhost:8080/.well-known/openid-configuration``` end point of auth server.
 - Now test the application
-###
+### Adding Authories in Authentication object
+- we hadded the "authorities" in token in auth server, but if we debug and check Authorization obj in resources relevant authorities will be part of token but not authorities type obj.
+- To incude authorities make the following changes.
+  - Create a new class ```JwtCustomTokenConverter.java``` write the required code.
+  - Add the following code in filter security chain bean  in config class of resource server.
+   ```
+   r->r.jwt().jwkSetUri(jwkUri)	
+		.jwtAuthenticationConverter(new JwtCustomTokenConverter())
+		);
+   ```
+- Now test the application in debug mode, authorities should be part of Authorization.authorities obj.
 
