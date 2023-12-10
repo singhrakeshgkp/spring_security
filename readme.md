@@ -4,6 +4,7 @@
 - [Basic](#basic)
   - [001 Security Basic](#001-security-basic)--Authentication, Authorization. Authentication with gene pwd
   - [002 Security Basic](#002-security-basic) --Ahthentication with inmemory credential
+  - [003 Security Basic](#003-security-basic) --Ahthentication 
  
 # Basic
 ## 001 Security Basic
@@ -23,3 +24,6 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 
 ## 002 Security Basic
 - Create a security config class, in this class config user details service bean with inmemory cred and password encoder bean. test from postman with the inmemory cred.
+
+## 003 Security Basic
+- [Diagram](/003-security-spring.png)
