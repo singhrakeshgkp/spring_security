@@ -1,47 +1,22 @@
 
 # Spring Boot Security
-### Enabling Spring boot Security - SpringSecurity-1 using form based login
-- Create new spring boot project with spring web, spring security, thymleaf and lombock dependencies.
-- Create controller and try to access any resource, by default spring will redirect you on login page.
-- Enter the defalt user name which is ```user``` and password from console(it is auto generated password)
-- You can also give your own user name and password from properties file, for this you have to add below configuration in application.properties
-  ```
-  spring.security.user.name=rakesh
-  spring.security.user.password=singh
-  
-<p><b>Configure InMemory Role based authentication </b></p>
-
-  - Create new Security config class
-  - configure user and its role. configure bean to encode the password
-  - remove the user details given from properties file
-  - Annotate the config class with ```@EnableMethodSecurity``` annotation
-  - Configure role on top of your resource using ```@PreAuthorize("hasAuthority('ROLE_ADMIN')")``` annotation
-  
- ### Get User Details from DB- SpringSecurity-2 using form based login
- - Role based access
- - Configured allowed roles using expression based access control ``` @PreAuthorize("hasAnyAuthority('USER','ADMIN')") ```
+# Table of Contents
+- [Basic](#basic)
+  - [001 Security Basic](#001-security-basic)-- Authentication, Authorization
  
-### Configure Role based Authorization using request matcher - SpringSecurity-3 using form based login
-- ```requestMatchers("/greet","/hello")``` -> resource should be accessible by all(authenticated and unauthenticated) users
-- ```.requestMatchers("/customer/**").hasAnyAuthority("ADMIN","USER")``` -> Should be accessible by user having Admin or user role
-- ```.requestMatchers("/banklist/**").hasAnyAuthority("ADMIN")``` -> should be accessible by user having admin role only.
- 
-### Configure SSL - SpringSecurity-4 
-- copyt springsecurity-3 proj
-- Generate self signed certificate (on prod instead of using self signed cert buy it from trusted provider)
-  - Go to your jdk bin installation directory and open command.
-  - Run the below command from command prompt to generate the certificate.
-    ```.\keytool -genkey -alias sslspring -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore sslspring.p12 -validity 3650```
-  - copy the generated certificate to your application class path (resources folder). while generating the cert i used welcome123 pwd.
-- Add following properties in application.properties file
-  ```
-  server.ssl.enabled=true
-  server.ssl.key-store=src/main/resources/sslspring.p12
-  server.ssl.key-store-password=welcome123
-  server.ssl.key-store-type=PKCS12
-  server.ssl.key-alias=sslspring
+# Basic
+## 001 Security Basic
+<p>Authentication and Authorization are security that we apply on our applications. Authentication is used to identify who u are? and authorization is used to v</p>
 
-  ```
-### Custom Login page and logout functionality - SpringSecurity-5
-### Customize Login Form control and implementing remember me functionality-6
-### Securing application using JWT (json web token) token
+```
+Role---> you are (you are admin, user, ... etc)
+Authority--> have(you have authority to do this, that ...etc)
+Encoding ----->Some rules that is used to transform the strinng in some output and then reverse it in original format. ex base64 encoding
+Encryption-----> Input--->Transform to--->output, output---->Key/secret neeeded----->input. ex 
+HashFunction---> Input---->output  output---to input not possible but it cas verify output if u have input.
+                prefered way of storing password is hash function.
+                
+```
+- Create a new spring boot application with web, security dependency, define a endpoint ```/security-test```, start the application, try to access the defined endpoint. Observe the response, it will be 401 unauthorized response.
+- Provide the user name as ``user``` and password from intellij console to postman basic auth section. U should be able to access the endpoint.
+   
