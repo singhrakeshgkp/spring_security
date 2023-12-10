@@ -26,4 +26,4 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 - Create a security config class, in this class config user details service bean with inmemory cred and password encoder bean. test from postman with the inmemory cred.
 
 ## 003 Security Basic
-- [Diagram](/security-basic/003-security-spring.png)
+- [Diagram](/003-security-spring.png)
