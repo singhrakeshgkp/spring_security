@@ -27,3 +27,6 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 
 ## 003 Security Basic
 - [Diagram](/security-basic/003-security-basic.png)
+  - in the diagram filter implements HttpBasicAuthentication which delegates this to an object called AuthenticationManager, delegatates this(AuthMgr) to an object Called AuthenticationProvider.
+  - And finally AuthenticationProvider use UserDetialsService and PasswordEncoder.
+  - 
