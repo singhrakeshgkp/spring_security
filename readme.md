@@ -7,6 +7,7 @@
 # Basic
 ## 001 Security Basic
 <p>Authentication and Authorization are security that we apply on our applications. Authentication is used to identify who u are? and authorization is used to v</p>
+
 ```
 Role---> you are (you are admin, user, ... etc)
 Authority--> have(you have authority to do this, that ...etc)
