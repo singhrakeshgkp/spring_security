@@ -35,4 +35,12 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 - Comment the UserDetails bean defined in SecurityConfig file. Create entity, service and repo classess.
 - run the application, try to access ```/security-test``` endpoint. after providing the credential u should be able to access the ```/security-test``` endpoint.
 ## 004 Security Basic
-- Authority
+- Create ```authorities``` and ```customers_authorities``` tables and its corresponding entity, define ORM mappings.
+- Crate ```CustomerAuthority``` Wrapper class and wrap authority in it.
+- Add the following code in ```getAuthorities``` method of ```CustomerCredential.java``` class
+  ```
+   return customer.getAuthorities()
+        .stream()
+        .map(CustomerAuthority::new)
+        .collect(Collectors.toList());
+  ``
