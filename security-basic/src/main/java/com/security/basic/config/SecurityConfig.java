@@ -12,7 +12,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 public class SecurityConfig {
-  @Bean
+  /*@Bean
   UserDetailsService userDetailsService(){
     var uds = new InMemoryUserDetailsManager();
     var user1 = User.withUsername("user")
@@ -20,7 +20,7 @@ public class SecurityConfig {
         .build();
     uds.createUser(user1);
     return uds;
-  }
+  }*/
 
   @Bean
   public PasswordEncoder passwordEncoder(){
