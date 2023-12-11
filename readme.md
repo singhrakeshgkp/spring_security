@@ -43,4 +43,4 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
         .stream()
         .map(CustomerAuthority::new)
         .collect(Collectors.toList());
-  ``
+  ```
