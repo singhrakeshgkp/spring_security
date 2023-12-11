@@ -3,6 +3,7 @@ package com.security.basic.model;
 import com.security.basic.entity.Customer;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +16,11 @@ public class CustomerCredential implements UserDetails {
   private  Customer customer;
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    return List.of(()->"read");
+
+    return customer.getAuthorities()
+        .stream()
+        .map(CustomerAuthority::new)
+        .collect(Collectors.toList());
   }
 
   @Override

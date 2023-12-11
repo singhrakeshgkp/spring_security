@@ -2,6 +2,8 @@ package com.security.basic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +20,8 @@ public class SecurityBasicApplication {
 class SecurityController{
 	@GetMapping("/security-test")
 	public String test(){
+		var user = SecurityContextHolder.getContext().getAuthentication();
+    user.getAuthorities().forEach(authority -> System.out.println(authority.getAuthority()));
 		return "welcome to spring security";
 	}
 }
