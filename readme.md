@@ -5,6 +5,7 @@
   - [001 Security Basic](#001-security-basic)--Authentication, Authorization. Authentication with gene pwd
   - [002 Security Basic](#002-security-basic) --Ahthentication with inmemory credential
   - [003 Security Basic](#003-security-basic) --Ahthentication with credential availabe in mysql
+  - [004 Security Basic](#004-security-basic) -- Authority based authentication
  
 # Basic
 ## 001 Security Basic
@@ -33,4 +34,5 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 - Add maria db, spring data jpa and lombok dependency. Configure the data source and table in maria db
 - Comment the UserDetails bean defined in SecurityConfig file. Create entity, service and repo classess.
 - run the application, try to access ```/security-test``` endpoint. after providing the credential u should be able to access the ```/security-test``` endpoint.
-    
+## 004 Security Basic
+- Authority
