@@ -50,4 +50,6 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
   ```
 
   ## 005 Security Basic
+  ###### Role and authority based authorization -- Pending
+  
   
