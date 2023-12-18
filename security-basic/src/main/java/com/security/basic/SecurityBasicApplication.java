@@ -21,13 +21,6 @@ public class SecurityBasicApplication {
 class SecurityController{
 	@GetMapping("/security-test")
 	public String test(){
-		var user = SecurityContextHolder.getContext().getAuthentication();
-    user.getAuthorities().forEach(authority -> System.out.println(authority.getAuthority()));
 		return "welcome to spring security";
-	}
-
-	@PreAuthorize("hasRole('ROLE_delete')")
-	public String delete(){
-		return "delete resource called";
 	}
 }
