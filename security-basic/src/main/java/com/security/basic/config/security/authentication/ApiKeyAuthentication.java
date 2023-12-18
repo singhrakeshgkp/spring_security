@@ -1,30 +1,29 @@
-package com.security.basic.config.security;
+package com.security.basic.config.security.authentication;
 
 import java.util.Collection;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Component;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
-public class CustomAuthentication implements Authentication {
+public class ApiKeyAuthentication implements Authentication {
 
-private  final boolean authentication;
+private  boolean authenticated;
 private final String key;
 
   @Override
   public boolean isAuthenticated() {
-    return authentication;
+    return authenticated;
   }
 
   @Override
   public void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException {
-
+    this.authenticated = isAuthenticated;
   }
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {

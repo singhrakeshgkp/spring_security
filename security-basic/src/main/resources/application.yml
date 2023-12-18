@@ -16,3 +16,9 @@ spring:
 ## DB is not used in this application, it could be removed
 secret:
   key: testsecret
+
+logging:
+  level:
+    org:
+      springframework:
+        security: INFO
