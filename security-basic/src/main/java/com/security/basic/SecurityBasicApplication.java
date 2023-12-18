@@ -2,6 +2,7 @@ package com.security.basic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,5 +24,10 @@ class SecurityController{
 		var user = SecurityContextHolder.getContext().getAuthentication();
     user.getAuthorities().forEach(authority -> System.out.println(authority.getAuthority()));
 		return "welcome to spring security";
+	}
+
+	@PreAuthorize("hasRole('ROLE_delete')")
+	public String delete(){
+		return "delete resource called";
 	}
 }

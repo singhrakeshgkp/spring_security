@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/spring_security
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/spring_security_role
     username: root
     password: root
   jpa:

@@ -1,12 +1,17 @@
 package com.security.basic.model;
 
+import com.security.basic.entity.Authority;
 import com.security.basic.entity.Customer;
+import com.security.basic.entity.Role;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @AllArgsConstructor
@@ -17,10 +22,21 @@ public class CustomerCredential implements UserDetails {
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
 
-    return customer.getAuthorities()
-        .stream()
-        .map(CustomerAuthority::new)
-        .collect(Collectors.toList());
+    return getAuthoritiesByRoles(customer.getRoles());
+  }
+
+  private Collection<? extends GrantedAuthority> getAuthoritiesByRoles(Set<Role> roles) {
+    List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+    List<String> rolesAndAuthoritiesNames = new ArrayList<>();
+    Collection<Authority> authorities = new ArrayList<>();
+     for(Role role : roles){
+       grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
+       authorities.addAll(role.getAuthorities());
+     }
+     for(Authority authority : authorities){
+       grantedAuthorities.add(new SimpleGrantedAuthority(authority.getName()));
+     }
+     return grantedAuthorities;
   }
 
   @Override

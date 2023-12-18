@@ -7,39 +7,39 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.util.Set;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name ="customers")
+@Table(name = "roles")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Customer {
+public class Role {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name="id")
   private Integer id;
-  @Column(name="user_name")
-  private String userName;
 
-  @Column(name="password")
-  private  String password;
+  @Column(name = "role_name")
+  private String name;
 
-  @ManyToMany(fetch=FetchType.EAGER)
+  @ManyToMany(mappedBy = "roles")
+  private Set<Customer> customers;
+
+  @ManyToMany(fetch= FetchType.EAGER)
   @JoinTable(
-      name = "customers_roles",
-      joinColumns = @JoinColumn(name = "customer_id"),
-      inverseJoinColumns = @JoinColumn(name = "role_id")
+      name = "roles_authorities",
+      joinColumns = @JoinColumn(name = "role_id"),
+      inverseJoinColumns = @JoinColumn(name = "authority_id")
   )
-  private Set<Role> roles;
+  private Set<Authority> authorities;
 }
