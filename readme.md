@@ -8,7 +8,8 @@
   - [Authority and Role Based Authentication](#authority-and-role-based-authentication)
     - [004 Security Basic](#004-security-basic) -- Authority based authentication
     - [005 Security Basic](#005-security-basic) -- Role and authority based authentication
- 
+  - [Customize filter,Authentication,AM,AP etc.]
+     - [006 Security Basic](#006-security-basic) -- Configure own filter,AM,AP..etc
 # Basic
 ## 001 Security Basic
 <p>Authentication and Authorization are security that we apply on our applications. Authentication is used to identify who u are? and authorization is used to v</p>
@@ -50,6 +51,16 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
   ```
 
   ## 005 Security Basic
-  ###### Role and authority based authorization -- Pending
+  #### Role and authority based authorization -- Pending
+
+  ## 006 Security Basic
+  #### Implement Custom Filter,AM(Authentication Manager),AP(Authentication, Provider) and Authenticate the request using secret from header instead of username and password.
+  - Configure ```SecurityFilterChain``` bean in ```SecurityConfig``` class
+  - Create new ```CustomAuthenticationFilter``` class and inject that bean in ```SecurityConfig``` class
+  - Configure the ```CustomAuthenticationFilter``` at index of 
+    ```UsernamePasswordAuthenticationFilter.class```
+  - In custom filter class configure custom ```AM``` and then create Create ```CustomAuthentication and CustomAuthenticationProvider``` class.
+  - run the applicationn and try to access ```/security-test``` resource without ```key``` header. You will get 403 forbidden error
+  - Now pass the header and correct key value, this time u will be able to access the resource
   
   
