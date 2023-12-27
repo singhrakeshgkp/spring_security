@@ -66,6 +66,7 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
   
   ## 007 Security Basic
   #### Configure ```ApiFilter apart from basic/default filter``` Authentifcation can be happen by either basic credential(user id+ pwd) or api key.
+  - [diagram](/007-security-auth.png)
   - Testing
     - try to access ```/security-test``` endpoint with api key, u should be able to access the resource
     - Now remove api key and try to access same resource using user id and password, resource should be accessible here as well.
