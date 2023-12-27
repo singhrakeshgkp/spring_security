@@ -10,6 +10,7 @@
     - [005 Security Basic](#005-security-basic) -- Role and authority based authentication
   - [Customize filter,Authentication,AM,AP etc.]
      - [006 Security Basic](#006-security-basic) -- Configure own filter,AM,AP..etc
+     - [007 Security Basic](#007-security-basic)-- Configure multiple filtere
 # Basic
 ## 001 Security Basic
 <p>Authentication and Authorization are security that we apply on our applications. Authentication is used to identify who u are? and authorization is used to v</p>
@@ -63,4 +64,10 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
   - run the applicationn and try to access ```/security-test``` resource without ```key``` header. You will get 403 forbidden error
   - Now pass the header and correct key value, this time u will be able to access the resource
   
-  
+  ## 007 Security Basic
+  #### Configure ```ApiFilter apart from basic/default filter``` Authentifcation can be happen by either basic credential(user id+ pwd) or api key.
+  - Testing
+    - try to access ```/security-test``` endpoint with api key, u should be able to access the resource
+    - Now remove api key and try to access same resource using user id and password, resource should be accessible here as well.
+    - In case api key or user id or password is incorrect 403 unauthorized access response should be returned by server.
+      
