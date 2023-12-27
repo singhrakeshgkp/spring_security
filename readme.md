@@ -8,7 +8,7 @@
   - [Authority and Role Based Authentication](#authority-and-role-based-authentication)
     - [004 Security Basic](#004-security-basic) -- Authority based authentication
     - [005 Security Basic](#005-security-basic) -- Role and authority based authentication
-  - [Customize filter,Authentication,AM,AP etc.]
+  - [Customizing filter Authentication AM And AP](#customizing-filter-authentication-AM-And-AP)
      - [006 Security Basic](#006-security-basic) -- Configure own filter,AM,AP..etc
      - [007 Security Basic](#007-security-basic)-- Configure multiple filtere
 # Basic
@@ -53,7 +53,7 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 
   ## 005 Security Basic
   #### Role and authority based authorization -- Pending
-
+# Customizing filter Authentication AM And AP
   ## 006 Security Basic
   #### Implement Custom Filter,AM(Authentication Manager),AP(Authentication, Provider) and Authenticate the request using secret from header instead of username and password.
   - Configure ```SecurityFilterChain``` bean in ```SecurityConfig``` class
