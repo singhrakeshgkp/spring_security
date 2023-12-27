@@ -1,15 +1,15 @@
-package com.security.basic.config.security;
+package com.security.basic.config.security.provider;
 
 import com.security.basic.config.security.authentication.ApiKeyAuthentication;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.stereotype.Component;
 
-@Component
-public class CustomAuthenticationProvider implements AuthenticationProvider {
+@AllArgsConstructor
+public class ApiKeyAuthenticationProvider implements AuthenticationProvider {
 
   @Value("${secret.key}")
   private String key;

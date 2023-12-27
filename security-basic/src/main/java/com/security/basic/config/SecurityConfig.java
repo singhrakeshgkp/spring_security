@@ -12,16 +12,17 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig {
 
   @Value("${secret.key}")
   private String key;
-  /*@Bean
+  @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
     return httpSecurity
-        .httpBasic(Customizer.withDefaults())
         .addFilterBefore(new ApiKeyFilter(key), BasicAuthenticationFilter.class)
+        .httpBasic(Customizer.withDefaults())
+        .authorizeHttpRequests(authorize->authorize.anyRequest()
+            .authenticated())
         .build();
-  }*/
+  }
 }

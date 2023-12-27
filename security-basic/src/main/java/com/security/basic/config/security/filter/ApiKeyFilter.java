@@ -1,6 +1,6 @@
 package com.security.basic.config.security.filter;
 
-import com.security.basic.config.security.CustomAuthenticationManager;
+import com.security.basic.config.security.manager.CustomAuthenticationManager;
 import com.security.basic.config.security.authentication.ApiKeyAuthentication;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -27,8 +27,8 @@ public class ApiKeyFilter extends OncePerRequestFilter{
     }
 
     var authentication = new ApiKeyAuthentication(keyFromHeader);
-    var authenticationResult = authenticationManager.authenticate(authentication);
     try{
+      var authenticationResult = authenticationManager.authenticate(authentication);
       if(authenticationResult.isAuthenticated()){
         SecurityContextHolder.getContext().setAuthentication(authenticationResult);
         filterChain.doFilter(request,response);
