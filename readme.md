@@ -12,7 +12,8 @@
      - [006 Security Basic](#006-security-basic) -- Configure own filter,AM,AP..etc
      - [007 Security Basic](#007-security-basic)-- Configure multiple filtere
   - [Authorization](#authorization)
-    - [008 Security Basic](#008-security-basic)
+    - [008 Security Basic](#008-security-basic) - endpoint based authorization
+    - [009 Security Basic](#009-security-basic) - mehtod based authorization
       
 # Basic
 ## 001 Security Basic
@@ -78,3 +79,5 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 ## 008 Security Basic
 #### After successfull authentication, the authentication details got stored into an object called ```SecurityContext```. Here we are going to implement endpoint based authorization
 
+## 009 Security Basic
+#### 
