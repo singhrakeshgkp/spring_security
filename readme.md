@@ -76,4 +76,5 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
     - In case api key or user id or password is incorrect 403 unauthorized access response should be returned by server.
 # Authorization      
 ## 008 Security Basic
-#### After successfull authentication, the authentication details got stored into an object called ```SecurityContext```
+#### After successfull authentication, the authentication details got stored into an object called ```SecurityContext```. Here we are going to implement endpoint based authorization
+
