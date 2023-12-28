@@ -80,4 +80,10 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 #### After successfull authentication, the authentication details got stored into an object called ```SecurityContext```. Here we are going to implement endpoint based authorization
 
 ## 009 Security Basic
-#### 
+#### Method based authorization
+- Use the annotation ```@EnableMethodSecurity``` to enable method based authorization
+- By default ```AuthorizationFilter``` apply and request do not reach to controller, from this filter spring will throw 403 error, to disable this filter use below code in your configuration class
+  ```
+  .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
+  ```
+- Add ```@PreAuthorize("hasAuthority('read')")``` annotatin on your controller mehtod that u want to authorize.
