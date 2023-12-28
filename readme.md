@@ -12,7 +12,8 @@
      - [006 Security Basic](#006-security-basic) -- Configure own filter,AM,AP..etc
      - [007 Security Basic](#007-security-basic)-- Configure multiple filtere
   - [Authorization](#authorization)
-    - [008 Security Basic](#008-security-basic)
+    - [008 Security Basic](#008-security-basic) - endpoint based authorization
+    - [009 Security Basic](#009-security-basic) - mehtod based authorization
       
 # Basic
 ## 001 Security Basic
@@ -78,3 +79,11 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 ## 008 Security Basic
 #### After successfull authentication, the authentication details got stored into an object called ```SecurityContext```. Here we are going to implement endpoint based authorization
 
+## 009 Security Basic
+#### Method based authorization
+- Use the annotation ```@EnableMethodSecurity``` to enable method based authorization
+- By default ```AuthorizationFilter``` apply and request do not reach to controller, from this filter spring will throw 403 error, to disable this filter use below code in your configuration class
+  ```
+  .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
+  ```
+- Add ```@PreAuthorize("hasAuthority('read')")``` annotatin on your controller mehtod that u want to authorize.
