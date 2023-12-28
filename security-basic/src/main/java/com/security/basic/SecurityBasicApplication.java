@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +29,7 @@ class SecurityController{
 		return "welcome to spring security";
 	}
 	@DeleteMapping("/delete")
+	@PreAuthorize("hasAuthority('delete')")
 	public String delete(){
 		var authorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
     authorities.forEach(authority -> System.out.println(authority.getAuthority()));
@@ -41,6 +43,7 @@ class SecurityController{
 	}
 
 	@GetMapping("/read")
+	@PreAuthorize("hasAuthority('read')")
 	public String read(){
 		var authorities = SecurityContextHolder.getContext().getAuthentication().getAuthorities();
 		authorities.forEach(authority -> System.out.println(authority.getAuthority()));

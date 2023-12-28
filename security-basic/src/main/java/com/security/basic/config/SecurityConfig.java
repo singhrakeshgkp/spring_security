@@ -5,7 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,6 +18,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableMethodSecurity
 public class SecurityConfig {
 
   @Bean
@@ -22,16 +26,7 @@ public class SecurityConfig {
 
     return httpSecurity
         .httpBasic(Customizer.withDefaults())
-        .csrf(AbstractHttpConfigurer::disable)// not recommended, if not disable from postman post req will not work
-        .authorizeHttpRequests(
-            authorize ->
-                authorize
-                   .requestMatchers("write/**")
-                    .hasAnyRole("admin")
-                    .requestMatchers(HttpMethod.GET,"write/**")
-                    .hasAnyAuthority("ROLE_admin","write")
-                    .anyRequest()
-                    .authenticated())
+        .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
         .build();
   }
 
@@ -42,14 +37,15 @@ public class SecurityConfig {
         User.builder()
             .username("rakesh")
             .password(passwordEncoder().encode("123"))
-            .authorities("write", "read","delete")
-            .roles("admin")
+            .authorities("read")
+            //.authorities("write", "read","delete")
+            //.roles("admin")
             .build();
     var user2 =
         User.builder()
             .username("suresh")
             .password(passwordEncoder().encode("1234"))
-            .authorities("read")
+            .authorities("write")
             .roles("user")
             .build();
     userDetailsService.createUser(user1);
