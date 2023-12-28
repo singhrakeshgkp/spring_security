@@ -14,8 +14,7 @@
      - [007 Security Basic](#007-security-basic)-- Configure multiple filtere
   - [Authorization](#authorization)
     - [008 Security Basic](#008-security-basic) - endpoint based authorization
-    - [009 Security Basic](#009-security-basic) - mehtod based authorization
-- [Oauth2](/oauth2.md)      
+    - [009 Security Basic](#009-security-basic) - mehtod based authorization     
 # Basic
 ## 001 Security Basic
 <p>Authentication and Authorization are security that we apply on our applications. Authentication is used to identify who u are? and authorization is used to v</p>
