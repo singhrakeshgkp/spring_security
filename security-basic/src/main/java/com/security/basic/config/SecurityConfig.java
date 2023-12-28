@@ -37,7 +37,7 @@ public class SecurityConfig {
         User.builder()
             .username("rakesh")
             .password(passwordEncoder().encode("123"))
-            .authorities("read")
+            .authorities("write","delete")
             //.authorities("write", "read","delete")
             //.roles("admin")
             .build();
@@ -45,8 +45,8 @@ public class SecurityConfig {
         User.builder()
             .username("suresh")
             .password(passwordEncoder().encode("1234"))
-            .authorities("write")
-            .roles("user")
+            .authorities("read")
+            //.roles("user")
             .build();
     userDetailsService.createUser(user1);
     userDetailsService.createUser(user2);
