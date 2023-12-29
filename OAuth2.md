@@ -1,11 +1,11 @@
 # OAuth2
 ## Table of contents
 - [Oauth2](#oauth2)
-   - [Oauth2 basic](#oauth2-basic)
-      - [Grant Types](#grant-types)
-      - [How does resource server validate token](#how-does-resource-server-validte-token)
+  - [Grant Types](#grant-types)
+  - [How does resource server validate token](#how-does-resource-server-validte-token)
+  - [Creating Oauth2 Server](#creating-oauth2-server)
 
-## Oauth2 basic
+## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
    - What are the possible grant types?
@@ -33,3 +33,5 @@
   - Non Opaque----> This kind of token contains data. ex JWT is the example of non opaque token
  
 - How Resource server validate the token is depends on the type of token being used. If opaque token is being used resource serve make a call to ```/introspection``` end point of auth server to get the data. If its non opeque token in this case resource server do not make any call to oauth sever only validate the signature.
+
+## Creating Oauth2 Server
