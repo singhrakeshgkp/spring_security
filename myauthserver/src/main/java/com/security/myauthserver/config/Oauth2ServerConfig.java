@@ -70,7 +70,7 @@ public class Oauth2ServerConfig {
 
   @Bean
   UserDetailsService userDetailsService(){
-    UserDetails userDetails = User.withDefaultPasswordEncoder()
+    UserDetails userDetails = User.builder()
         .username("test")
         .password("test123")
         .build();
