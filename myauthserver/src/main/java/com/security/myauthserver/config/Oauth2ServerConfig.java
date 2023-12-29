@@ -50,7 +50,7 @@ public class Oauth2ServerConfig {
     OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
     http
         .getConfigurer(OAuth2AuthorizationServerConfigurer.class)
-        .oidc(Customizer.withDefaults());
+        .oidc(Customizer.withDefaults());//this will generate id token as well
     http.exceptionHandling(
         e ->
             e.defaultAuthenticationEntryPointFor(
