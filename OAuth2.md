@@ -18,8 +18,11 @@
    - Client will send authorization code + client cred to auth server to get access token
    - Auth server will send back access token to client.
  
-- Client Credentials [diagram](/oauth2-client-credentials.png)
+- Client Credentials [diagram](/client-credentials.png)
    - In this type of grant type there is no user intraction
    - client send client id and secret to auth server
    - auth server returns the access token to client
-
+- Refresh token [diagram](/oauth2-refresh-token.png)
+   - user send request to client
+   - client request for token using refresh token
+   - auth server send access token and refresh token
