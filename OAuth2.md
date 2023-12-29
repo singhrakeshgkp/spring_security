@@ -12,7 +12,7 @@
    - What are the possible grant types?
    - how does the resource server validate and get the data with the access token?
 ### Grant Types
-- Authorization Code [diagram](/oauth2-authorizationcode.png)
+- Authorization Code [diagram](/oauth2-authorizationcode.png) [diagram for pkce based authorization code](/oauth2-authorizationcode-with-pkce.png)
    - user try to do something
    - request will go to client and then client will redirect the user to auth server login page with redirect url.
    - user will provide the login details and send the request, request will go to auth server
