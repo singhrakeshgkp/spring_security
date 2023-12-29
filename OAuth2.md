@@ -3,6 +3,7 @@
 - [Oauth2](#oauth2)
    - [Oauth2 basic](#oauth2-basic)
       - [Grant Types](#grant-types)
+      - [How does resource server validate token](#how-does-resource-server-validte-token)
 
 ## Oauth2 basic
 - Basic [Diagram](/oauth2-basic.png)
@@ -26,3 +27,9 @@
    - user send request to client
    - client request for token using refresh token
    - auth server send access token and refresh token
+### How does resource server validate token
+- Token could be of two types
+  - Opaque---> this kind of token do not contains any data.
+  - Non Opaque----> This kind of token contains data. ex JWT is the example of non opaque token
+ 
+- How Resource server validate the token is depends on the type of token being used. If opaque token is being used resource serve make a call to ```/introspection``` end point of auth server to get the data. If its non opeque token in this case resource server do not make any call to oauth sever only validate the signature.
