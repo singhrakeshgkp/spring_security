@@ -67,3 +67,5 @@
       context.getClaims().claim("mytestclaim","mytestclaim");
     };
   ```
+- Following code can be used to modify the token duration
+  ```tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofSeconds(900)).build())```
