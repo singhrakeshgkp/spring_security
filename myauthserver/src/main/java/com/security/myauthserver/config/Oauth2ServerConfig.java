@@ -10,6 +10,7 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.time.Duration;
 import java.util.UUID;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +34,9 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
+import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
+import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
@@ -94,6 +98,7 @@ public class Oauth2ServerConfig {
        // .postLogoutRedirectUri("")
         .scope(OidcScopes.OPENID)
         .scope(OidcScopes.PROFILE)
+        .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofSeconds(900)).build())
         .clientSettings(clientSettings())
         .build();
     return new InMemoryRegisteredClientRepository(oidcClient);
@@ -102,6 +107,9 @@ public class Oauth2ServerConfig {
   @Bean
   AuthorizationServerSettings authorizationServerSettings(){
     return  AuthorizationServerSettings.builder()
+    //localhost:8181/.well-known/openid-configuration this will return the possible endpoints such as user info endpoint
+        //this endpoint can be customized by below code
+        //.oidcUserInfoEndpoint("/user")
         .build();
   }
 
@@ -125,5 +133,12 @@ public class Oauth2ServerConfig {
         .build();
     JWKSet jwkSet = new JWKSet(rsaKey);
     return new ImmutableJWKSet(jwkSet);
+  }
+
+  @Bean
+  public OAuth2TokenCustomizer<JwtEncodingContext> oAuth2TokenCustomizer(){
+   return context->{
+      context.getClaims().claim("mytestclaim","mytestclaim");
+    };
   }
 }
