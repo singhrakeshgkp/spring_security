@@ -7,6 +7,7 @@
   - [Creating Oauth2 Server and generating token](#creating-oauth2-server-and-generating-token)  -- 010-security-oauth2-authserver
   - [Customizing token](#customizing-token)
     - [Customizing token duration](#customizing-token-duration)  -- 011-security-oauth2-authserver
+    - [Customizing token type to opaque](#customizing-token-type-to-opaque)  -- 012-security-oauth2-authserver
    
       
 ## Oauth2
@@ -73,3 +74,25 @@
 - Following code can be used to modify the token duration
   ```tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofSeconds(900)).build())```
 
+### Customizing token type to opaque
+- Add following line in token setting
+  ```.accessTokenFormat(OAuth2TokenFormat.REFERENCE)```
+- Now run the application and geneate the token.
+- Send the token to ```oauth2/instrospect?token?=jfjk``` endpoint, with client credential, u should be able to get the response like below.
+  ```json
+  {
+    "active": true,
+    "sub": "test",
+    "aud": [
+        "client"
+    ],
+    "nbf": 1703911823,
+    "scope": "openid",
+    "iss": "http://localhost:8181",
+    "exp": 1703912723,
+    "iat": 1703911823,
+    "jti": "c505823d-a537-4aac-8d4a-4d1077650beb",
+    "client_id": "client",
+    "token_type": "Bearer"
+}
+  ```
