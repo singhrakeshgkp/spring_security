@@ -34,6 +34,7 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
+import org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
 import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
 import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
@@ -98,7 +99,9 @@ public class Oauth2ServerConfig {
        // .postLogoutRedirectUri("")
         .scope(OidcScopes.OPENID)
         .scope(OidcScopes.PROFILE)
-        .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofSeconds(900)).build())
+        .tokenSettings(TokenSettings.builder()
+            .accessTokenFormat(OAuth2TokenFormat.REFERENCE)//1. Reference- for opaque, 2. self contained -- for non opaque
+            .accessTokenTimeToLive(Duration.ofSeconds(900)).build())
         .clientSettings(clientSettings())
         .build();
     return new InMemoryRegisteredClientRepository(oidcClient);
