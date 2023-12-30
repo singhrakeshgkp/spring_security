@@ -94,7 +94,7 @@
     "iat": 1703911823,
     "jti": "c505823d-a537-4aac-8d4a-4d1077650beb",
     "client_id": "client",
-    "token_type": "Bearer"
-}```
+    "token_type": "Bearer"}
+```
 
 ## Authenticate client and user from db
