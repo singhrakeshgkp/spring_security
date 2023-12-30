@@ -5,6 +5,7 @@
   - [How does resource server validate token](#how-does-resource-server-validte-token)
   - [PKCE](#pkce)
   - [Creating Oauth2 Server and generating token](#creating-oauth2-server-and-generating-token)  -- 010-security-oauth2-authserver
+  - [Customizing jwt token](#customizing-jwt-token)  -- 011-security-oauth2-authserver
 
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
@@ -56,3 +57,13 @@
  
 - If everything goes fine, u wil get access token in the response. Make sure each time while generating the token u are passsing unique authorization code and also while generating authorization code pass unique code_challenge everytime otherwise ```invaid grant type``` error will be returned in postman by oauth2 server.
 - There is one more endpoint that is ```oauth2/jwks``` which returns kid, kid in jwt token and kid returned by jwks will be same. This kid can be used to match the signature of the generated token.
+
+## Customizing jwt token
+- Add following bean in your security configuration class. This bean will add additional claim ```mytestclaim``` in jwt token.
+  ```
+   @Bean
+  public OAuth2TokenCustomizer<JwtEncodingContext> oAuth2TokenCustomizer(){
+   return context->{
+      context.getClaims().claim("mytestclaim","mytestclaim");
+    };
+  ```
