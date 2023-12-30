@@ -8,6 +8,7 @@
   - [Customizing token](#customizing-token)
     - [Customizing token duration](#customizing-token-duration)  -- 011-security-oauth2-authserver
     - [Customizing token type to opaque](#customizing-token-type-to-opaque)  -- 012-security-oauth2-authserver
+  - [Authenticate client and user from db](#authenticate-client-and-user-from-db)--013-security-oauth2-authserver
    
       
 ## Oauth2
@@ -96,3 +97,5 @@
     "token_type": "Bearer"
 }
   ```
+
+## Authenticate client and user from db
