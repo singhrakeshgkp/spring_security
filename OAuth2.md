@@ -7,7 +7,8 @@
   - [Creating Oauth2 Server and generating token](#creating-oauth2-server-and-generating-token)  -- 010-security-oauth2-authserver
   - [Customizing token](#customizing-token)
     - [Customizing token duration](#customizing-token-duration)  -- 011-security-oauth2-authserver
-    - [Generating non opaque token](#)
+   
+      
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
@@ -72,4 +73,3 @@
 - Following code can be used to modify the token duration
   ```tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofSeconds(900)).build())```
 
-  ### Generating Non Opaque token
