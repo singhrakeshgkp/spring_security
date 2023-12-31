@@ -9,7 +9,8 @@
     - [Customizing token duration](#customizing-token-duration)  -- 011-security-oauth2-authserver
     - [Customizing token type to opaque](#customizing-token-type-to-opaque)  -- 012-security-oauth2-authserver
   - [Authenticate client and user from db](#authenticate-client-and-user-from-db)--013-security-oauth2-authserver
-   [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
+  - [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
+    - [Debug and customize Authentication](#debug-and-customize-authentication) --015-security-oauth2-resourcesserver
       
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
@@ -106,3 +107,18 @@
 - Create new spring boot application with spring security and oauth2 resource server dependency
 - Configure the Filter and jwk url(this is endpoint from oauth2 server, it will return key that will be used to validate the token)
 - Test the application, you should be able to access ```/test``` endpoint if token is correct/valid
+### Debug and customize Authentication
+- If u put ```Authentication authentication``` code in below get resource of your controller. Now debug it and observe authorities field it will not have authorities what we have provided in oauth server.
+  ```java
+  @GetMapping("/test")
+	public String resourceTest(Authentication authentication){
+		return "Welcome, resource server is able to authenticate the user successfully";
+	}
+- To set the authorities perform below steps.
+   - Create new class ```AuthenticationTokenConverter```  and implement convert interface.
+   - add follwoing code in SecurityFilterChain
+     ```java
+     .jwt(
+     customizer ->
+     customizer.jwtAuthenticationConverter(new AuthenticationTokenConverter()));
+   - Now run the application and debug it, and observe authorities field of authentication object. Authorities should be present. 
