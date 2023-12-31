@@ -2,7 +2,7 @@
 ## Table of contents
 - [Oauth2](#oauth2)
   - [Grant Types](#grant-types)
-  - [How does resource server validate token](#how-does-resource-server-validte-token)
+  - [How does resource server validate token](#how-does-resource-server-validate-token)
   - [PKCE](#pkce)
   - [Creating Oauth2 Server and generating token](#creating-oauth2-server-and-generating-token)  -- 010-security-oauth2-authserver
   - [Customizing token](#customizing-token)
