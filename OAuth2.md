@@ -108,7 +108,7 @@
 - Configure the Filter and jwk url(this is endpoint from oauth2 server, it will return key that will be used to validate the token)
 - Test the application, you should be able to access ```/test``` endpoint if token is correct/valid
 ### Debug and customize Authentication
-- If u put ```Authentication authentication``` code in below get resource of your controller. Now debug it and observe authorities field it will not have authorities what we have provided in oauth server.
+- If u put ```Authentication authentication``` code in below get resource of your controller(here spring will inject this bean). Now debug it and observe authorities field it will not have authorities what we have provided in oauth2 server.
   ```java
   @GetMapping("/test")
 	public String resourceTest(Authentication authentication){
