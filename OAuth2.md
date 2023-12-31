@@ -11,6 +11,7 @@
   - [Authenticate client and user from db](#authenticate-client-and-user-from-db)--013-security-oauth2-authserver
   - [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
     - [Debug and customize Authentication](#debug-and-customize-authentication) --015-security-oauth2-resourcesserver
+    - [Implementing own AuthenticationToken with custom field](#implementing-own-authenticationtoken-with-custom-field)  ----016-security-oauth2-resourcesserver
       
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
@@ -122,3 +123,8 @@
      customizer ->
      customizer.jwtAuthenticationConverter(new AuthenticationTokenConverter()));
    - Now run the application and debug it, and observe authorities field of authentication object. Authorities should be present. 
+### Implementing own AuthenticationToken with custom field
+- Create new class ```CustomJWTAuthenticationToken.java``` extending ```JwtAuthenticationToken``` class
+- Add new field and initialize that field in the constructor
+- Now go to ```AuthenticationTokenConverter.java``` class and replace ```JWTAuthenticationToken``` with ```CustomJwtAuthenticationToken``` class.
+- Run application in debug mode and see your defined custom field under authentication object.
