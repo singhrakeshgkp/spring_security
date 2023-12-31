@@ -12,7 +12,7 @@
   - [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
     - [Debug and customize Authentication](#debug-and-customize-authentication) --015-security-oauth2-resourcesserver
     - [Implementing own AuthenticationToken with custom field](#implementing-own-authenticationtoken-with-custom-field)  ----016-security-oauth2-resourcesserver
-      
+  - [Creating and authenticating with opaque token](#creating-and-authenticating-with-opaque-toekn) --017-security-oauth2-resourcesserver    
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
@@ -128,3 +128,14 @@
 - Add new field and initialize that field in the constructor
 - Now go to ```AuthenticationTokenConverter.java``` class and replace ```JWTAuthenticationToken``` with ```CustomJwtAuthenticationToken``` class.
 - Run application in debug mode and see your defined custom field under authentication object.
+## Creating and authenticating with opaque token
+- Modify Client.java class in authserver, add following properties in tokensetting, this will change token to opaque token
+  ```java
+  .accessTokenFormat(OAuth2TokenFormat.REFERENCE)
+- In Resource server configure instrospection end point and client credential as shown below.
+  ```java
+  r.opaqueToken(customizer->{
+           customizer.introspectionUri(instrospectionUri);
+           customizer.introspectionClientCredentials("client","testsecret");//Hardcoded
+         });
+- Run resource server application and try to access the resource with generated opaque token, resource should be accessible. 
