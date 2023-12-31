@@ -11,7 +11,7 @@ public class AuthenticationTokenConverter implements Converter<Jwt, JwtAuthentic
   @Override
   public JwtAuthenticationToken convert(Jwt source) {
     List<String> authorities = (List<String>) source.getClaims().get("authorities");
-    JwtAuthenticationToken authenticationToken = new JwtAuthenticationToken(source,authorities.stream().map(
+    CustomJWTAuthenticationToken authenticationToken = new CustomJWTAuthenticationToken(source,authorities.stream().map(
         SimpleGrantedAuthority::new).toList());
     return authenticationToken;
   }
