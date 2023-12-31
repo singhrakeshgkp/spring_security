@@ -98,3 +98,7 @@
   }
 
 ## Authenticate client and user from db
+- Create User and Client Entit. Apart from this also create its respective repository.
+- Create Service classess
+- Run the application and try to generate the token same way as we did with inmemory credential.
+- JWT token should be generated.
