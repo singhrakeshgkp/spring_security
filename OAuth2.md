@@ -8,6 +8,7 @@
   - [Customizing token](#customizing-token)
     - [Customizing token duration](#customizing-token-duration)  -- 011-security-oauth2-authserver
     - [Customizing token type to opaque](#customizing-token-type-to-opaque)  -- 012-security-oauth2-authserver
+  - [Authenticate client and user from db](#authenticate-client-and-user-from-db)--013-security-oauth2-authserver
    
       
 ## Oauth2
@@ -94,5 +95,10 @@
     "jti": "c505823d-a537-4aac-8d4a-4d1077650beb",
     "client_id": "client",
     "token_type": "Bearer"
-}
-  ```
+  }
+
+## Authenticate client and user from db
+- Create User and Client Entit. Apart from this also create its respective repository.
+- Create Service classess
+- Run the application and try to generate the token same way as we did with inmemory credential.
+- JWT token should be generated.
