@@ -9,7 +9,8 @@
     - [Customizing token duration](#customizing-token-duration)  -- 011-security-oauth2-authserver
     - [Customizing token type to opaque](#customizing-token-type-to-opaque)  -- 012-security-oauth2-authserver
   - [Authenticate client and user from db](#authenticate-client-and-user-from-db)--013-security-oauth2-authserver
-   [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
+ - [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
+    - [Debug and customize Authentication](#debug-and-customize-authentication) --015-security-oauth2-resourcesserver
       
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
