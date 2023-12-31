@@ -12,7 +12,7 @@
   - [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
     - [Debug and customize Authentication](#debug-and-customize-authentication) --015-security-oauth2-resourcesserver
     - [Implementing own AuthenticationToken with custom field](#implementing-own-authenticationtoken-with-custom-field)  ----016-security-oauth2-resourcesserver
-  - [Creating and authenticating with opaque token](#creating-and-authenticating-with-opaque-toekn) --017-security-oauth2-resourcesserver    
+  - [Creating and authenticating with opaque token](#creating-and-authenticating-with-opaque-token) --017-security-oauth2-resourcesserver    
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
