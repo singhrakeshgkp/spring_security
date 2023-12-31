@@ -9,7 +9,7 @@
     - [Customizing token duration](#customizing-token-duration)  -- 011-security-oauth2-authserver
     - [Customizing token type to opaque](#customizing-token-type-to-opaque)  -- 012-security-oauth2-authserver
   - [Authenticate client and user from db](#authenticate-client-and-user-from-db)--013-security-oauth2-authserver
-   
+   [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
       
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
@@ -102,3 +102,7 @@
 - Create Service classess
 - Run the application and try to generate the token same way as we did with inmemory credential.
 - JWT token should be generated.
+## Create resource server and access resources
+- Create new spring boot application with spring security and oauth2 resource server dependency
+- Configure the Filter and jwk url(this is endpoint from oauth2 server, it will return key that will be used to validate the token)
+- Test the application, you should be able to access ```/test``` endpoint if token is correct/valid
