@@ -11,16 +11,16 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class ResourceServerSecurityConfig {
 
-  @Value("${myauthserver.jwk.uri}")
-  private String jwkUri;
+  @Value("${myauthserver.introspection.uri}")
+  private String instrospectionUri;
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
     httpSecurity.oauth2ResourceServer(
         r -> {
-          r.jwt(jwtConfigurer -> jwtConfigurer.jwkSetUri(jwkUri))
-              .jwt(
-                  customizer ->
-                      customizer.jwtAuthenticationConverter(new AuthenticationTokenConverter()));
+         r.opaqueToken(customizer->{
+           customizer.introspectionUri(instrospectionUri);
+           customizer.introspectionClientCredentials("client","testsecret");//Hardcoded
+         });
         });
     httpSecurity.authorizeHttpRequests(
         authCustomizer -> authCustomizer.anyRequest().authenticated());

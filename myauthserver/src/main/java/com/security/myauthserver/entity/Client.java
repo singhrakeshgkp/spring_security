@@ -13,6 +13,7 @@ import lombok.Setter;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
+import org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
 
 @Entity
@@ -62,7 +63,9 @@ public class Client {
        .redirectUri(client.getRedirectUri())
        .clientAuthenticationMethod(new ClientAuthenticationMethod(client.getAuthMethod()))
        .authorizationGrantType(new AuthorizationGrantType(client.getGrantType()))
-       .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofHours(20)).build())
+       .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofHours(20))
+           .accessTokenFormat(OAuth2TokenFormat.REFERENCE)//this property will change the token from non opaque to opaque
+           .build())
        .build();
    return registeredClient;
   }

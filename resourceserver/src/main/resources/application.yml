@@ -1,3 +1,3 @@
 myauthserver:
-  jwk:
-   uri: http://localhost:8181/oauth2/jwks
+  introspection:
+   uri: http://localhost:8181/oauth2/introspect
