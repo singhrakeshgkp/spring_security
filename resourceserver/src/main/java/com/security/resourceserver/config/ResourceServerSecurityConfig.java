@@ -1,4 +1,4 @@
-package com.security.resourceserver;
+package com.security.resourceserver.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -16,8 +16,12 @@ public class ResourceServerSecurityConfig {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
     httpSecurity.oauth2ResourceServer(
-        r->r.jwt(jwtConfigurer -> jwtConfigurer.jwkSetUri(jwkUri))
-    );
+        r -> {
+          r.jwt(jwtConfigurer -> jwtConfigurer.jwkSetUri(jwkUri))
+              .jwt(
+                  customizer ->
+                      customizer.jwtAuthenticationConverter(new AuthenticationTokenConverter()));
+        });
     httpSecurity.authorizeHttpRequests(
         authCustomizer -> authCustomizer.anyRequest().authenticated());
     return httpSecurity.build();

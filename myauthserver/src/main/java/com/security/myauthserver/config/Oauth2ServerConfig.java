@@ -73,39 +73,12 @@ public class Oauth2ServerConfig {
     return http.build();
   }
 
-  /*@Bean
-  UserDetailsService userDetailsService(){
-    UserDetails userDetails = User.builder()
-        .username("test")
-        .password("test123")
-        .build();
-    return new InMemoryUserDetailsManager(userDetails);
-  }
-*/
 
   @Bean
   PasswordEncoder passwordEncoder(){
     return  NoOpPasswordEncoder.getInstance();
   }
-  /*@Bean
-  RegisteredClientRepository registeredClientRepository(){
-    RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
-        .clientId("client")
-        .clientSecret("testsecret")
-        .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-        .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-        .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-        .redirectUri("https://docs.spring.io/authorized")
-       // .postLogoutRedirectUri("")
-        .scope(OidcScopes.OPENID)
-        .scope(OidcScopes.PROFILE)
-        .tokenSettings(TokenSettings.builder()
-            .accessTokenFormat(OAuth2TokenFormat.REFERENCE)//1. Reference- for opaque, 2. self contained -- for non opaque
-            .accessTokenTimeToLive(Duration.ofSeconds(900)).build())
-        .clientSettings(clientSettings())
-        .build();
-    return new InMemoryRegisteredClientRepository(oidcClient);
-  }*/
+
 
   @Bean
   AuthorizationServerSettings authorizationServerSettings(){
@@ -142,6 +115,9 @@ public class Oauth2ServerConfig {
   public OAuth2TokenCustomizer<JwtEncodingContext> oAuth2TokenCustomizer(){
    return context->{
       context.getClaims().claim("mytestclaim","mytestclaim");
-    };
+      /*by default authorities will not be available in jwt token, following code will add authorities in jwt*/
+      var authorities = context.getPrincipal().getAuthorities().stream().map(authority->authority.getAuthority()).toList();
+      context.getClaims().claim("authorities",authorities);
+   };
   }
 }
