@@ -107,3 +107,10 @@
 - Create new spring boot application with spring security and oauth2 resource server dependency
 - Configure the Filter and jwk url(this is endpoint from oauth2 server, it will return key that will be used to validate the token)
 - Test the application, you should be able to access ```/test``` endpoint if token is correct/valid
+### Debug and customize Authentication
+- If u put below code in get resource of your controller. and check Authentication, it will have only ```openid connect scope
+  ```java
+  @GetMapping("/test")
+	public String resourceTest(Authentication authentication){
+		return "Welcome, resource server is able to authenticate the user successfully";
+	}
