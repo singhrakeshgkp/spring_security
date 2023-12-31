@@ -108,9 +108,17 @@
 - Configure the Filter and jwk url(this is endpoint from oauth2 server, it will return key that will be used to validate the token)
 - Test the application, you should be able to access ```/test``` endpoint if token is correct/valid
 ### Debug and customize Authentication
-- If u put below code in get resource of your controller. and check Authentication, it will have only ```openid connect scope
+- If u put ```Authentication authentication``` code in below get resource of your controller. Now debug it and observe authorities field it will not have authorities what we have provided in oauth server.
   ```java
   @GetMapping("/test")
 	public String resourceTest(Authentication authentication){
 		return "Welcome, resource server is able to authenticate the user successfully";
 	}
+- To set the authorities perform below steps.
+   - Create new class ```AuthenticationTokenConverter```  and implement convert interface.
+   - add follwoing code in SecurityFilterChain
+     ```java
+     .jwt(
+     customizer ->
+     customizer.jwtAuthenticationConverter(new AuthenticationTokenConverter()));
+   - Now run the application and debug it, and observe authorities field of authentication object. Authorities should be present. 
