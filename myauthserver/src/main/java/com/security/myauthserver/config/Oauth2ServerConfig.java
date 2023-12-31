@@ -73,7 +73,7 @@ public class Oauth2ServerConfig {
     return http.build();
   }
 
-  @Bean
+  /*@Bean
   UserDetailsService userDetailsService(){
     UserDetails userDetails = User.builder()
         .username("test")
@@ -81,13 +81,13 @@ public class Oauth2ServerConfig {
         .build();
     return new InMemoryUserDetailsManager(userDetails);
   }
-
+*/
 
   @Bean
   PasswordEncoder passwordEncoder(){
     return  NoOpPasswordEncoder.getInstance();
   }
-  @Bean
+  /*@Bean
   RegisteredClientRepository registeredClientRepository(){
     RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
         .clientId("client")
@@ -105,7 +105,7 @@ public class Oauth2ServerConfig {
         .clientSettings(clientSettings())
         .build();
     return new InMemoryRegisteredClientRepository(oidcClient);
-  }
+  }*/
 
   @Bean
   AuthorizationServerSettings authorizationServerSettings(){
