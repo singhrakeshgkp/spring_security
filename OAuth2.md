@@ -12,7 +12,8 @@
   - [Create resource server and access resources](#create-resource-server-and-access-resources) --014-security-oauth2-resourcesserver
     - [Debug and customize Authentication](#debug-and-customize-authentication) --015-security-oauth2-resourcesserver
     - [Implementing own AuthenticationToken with custom field](#implementing-own-authenticationtoken-with-custom-field)  ----016-security-oauth2-resourcesserver
-  - [Creating and authenticating with opaque token](#creating-and-authenticating-with-opaque-token) --017-security-oauth2-resourcesserver    
+  - [Creating and authenticating with opaque token](#creating-and-authenticating-with-opaque-token) --017-security-oauth2-resourcesserver
+  - [Creating and authenticating client](#creating-and-authenticating-client) --018-security-oauth2-resourcesserver    
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
@@ -139,3 +140,9 @@
            customizer.introspectionClientCredentials("client","testsecret");//Hardcoded
          });
 - Run resource server application and try to access the resource with generated opaque token, resource should be accessible. 
+
+## Creating and authenticating client
+- Create new spring boot application with ```spring security, oauth2client, spring web, lombok``` dependency.
+- Create Config class and write the required logic
+- Make sure authorization grant type is matching with oauth2 server
+- Now test the application, for testing create one controller and try to access that endpoint, here i have created "/token" endpoint.
