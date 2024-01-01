@@ -15,7 +15,7 @@
   - [Creating and authenticating with opaque token](#creating-and-authenticating-with-opaque-token) --017-security-oauth2-resourcesserver
   - [Creating and authenticating client](#creating-and-authenticating-client) --018-security-oauth2-oauth2client
   - [Multitenancy](#multitenancy)
-     - [Configure multiple oauth2 server in resource server](#configure-multiple-oauth2-server-in-resource-server) --019-security-oauth2-multitenancy
+     - [If All the Oauth2 Servers Issues jwt token](if-all-the-oauth2-servers-issues-jwt-token) --019-security-oauth2-multitenancy
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
@@ -153,7 +153,8 @@
 ##### [Diagram](/multitenancy.png)
 <p> what if u have multiple oauth2 server, how u will access any end point from resouce server, how your resource server will authenticate the token? </p>
 
-### Configure multiple oauth2 server in resource server
+### If All the Oauth2 Servers Issues jwt token
+- Configure in non-opaque token in oauth2 servers
 - Start Myathuserver and myauthserver2 on 8181 and 8282 ports respectively.
 - Configure ```AuthenticationManagerResolver``` instead of jwk uri in resource server.
 - Now generate the token on both the oauth2 server one by one and try to access the resource from resource server wit both the token one token in a single time, you should be able to acess the resouce with both token if token is valid.
