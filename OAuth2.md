@@ -13,7 +13,7 @@
     - [Debug and customize Authentication](#debug-and-customize-authentication) --015-security-oauth2-resourcesserver
     - [Implementing own AuthenticationToken with custom field](#implementing-own-authenticationtoken-with-custom-field)  ----016-security-oauth2-resourcesserver
   - [Creating and authenticating with opaque token](#creating-and-authenticating-with-opaque-token) --017-security-oauth2-resourcesserver
-  - [Creating and authenticating client](#creating-and-authenticating-client) --018-security-oauth2-resourcesserver    
+  - [Creating and authenticating client](#creating-and-authenticating-client) --018-security-oauth2-oauth2client    
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
