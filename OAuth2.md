@@ -150,7 +150,8 @@
 - Now test the application, for testing create one controller and try to access that endpoint, here i have created "/token" endpoint.
 
 ## Multitenancy
-<p> [Diagram](/multitenancy.png).what if u have multiple oauth2 server, how u will access any end point from resouce server, how your resource server will authenticate the token? </p>
+##### [Diagram](/multitenancy.png)
+<p> what if u have multiple oauth2 server, how u will access any end point from resouce server, how your resource server will authenticate the token? </p>
 
 ### Configure multiple oauth2 server in resource server
 - Start Myathuserver and myauthserver2 on 8181 and 8282 ports respectively.
