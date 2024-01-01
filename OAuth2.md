@@ -155,4 +155,4 @@
 ### Configure multiple oauth2 server in resource server
 - Start Myathuserver and myauthserver2 on 8181 and 8282 ports respectively.
 - Configure ```AuthenticationManagerResolver``` instead of jwk uri in resource server.
-- Now generate the token on both the oauth2 server one by one and try to access the resource from resource server wit both the token one by one, you should be able to acess the resouce with both token if token is valid.
+- Now generate the token on both the oauth2 server one by one and try to access the resource from resource server wit both the token one token in a single time, you should be able to acess the resouce with both token if token is valid.
