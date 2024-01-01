@@ -1,3 +1,5 @@
-myauthserver:
-  introspection:
-   uri: http://localhost:8181/oauth2/introspect
+myauth:
+  server1:
+    uri: http://localhost:8181
+  server2:
+    uri: http://localhost:8282
