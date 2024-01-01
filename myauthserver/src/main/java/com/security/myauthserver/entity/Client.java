@@ -62,9 +62,9 @@ public class Client {
        .scope(client.getScope())
        .redirectUri(client.getRedirectUri())
        .clientAuthenticationMethod(new ClientAuthenticationMethod(client.getAuthMethod()))
-       .authorizationGrantType(new AuthorizationGrantType(client.getGrantType()))
+       .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
        .tokenSettings(TokenSettings.builder().accessTokenTimeToLive(Duration.ofHours(20))
-           .accessTokenFormat(OAuth2TokenFormat.REFERENCE)//this property will change the token from non opaque to opaque
+          // .accessTokenFormat(OAuth2TokenFormat.REFERENCE)//this property will change the token from non opaque to opaque
            .build())
        .build();
    return registeredClient;
