@@ -15,7 +15,8 @@
   - [Creating and authenticating with opaque token](#creating-and-authenticating-with-opaque-token) --017-security-oauth2-resourcesserver
   - [Creating and authenticating client](#creating-and-authenticating-client) --018-security-oauth2-oauth2client
   - [Multitenancy](#multitenancy)
-     - [If All the Oauth2 Servers Issues jwt token](if-all-the-oauth2-servers-issues-jwt-token) --019-security-oauth2-multitenancy
+     - [If All the Oauth2 Servers Issues jwt token](#if-all-the-oauth2-servers-issues-jwt-token) --019-security-oauth2-multitenancy
+     - [If different token configured in Oauth2 servers](#if-different-token-configured-in-oauth2-servers)  --020-security-oauth2-multitenancy
 ## Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
@@ -158,3 +159,8 @@
 - Start Myathuserver and myauthserver2 on 8181 and 8282 ports respectively.
 - Configure ```AuthenticationManagerResolver``` instead of jwk uri in resource server.
 - Now generate the token on both the oauth2 server one by one and try to access the resource from resource server wit both the token one token in a single time, you should be able to acess the resouce with both token if token is valid.
+
+### If different token configured in Oauth2 servers
+- Make configuration change in MyAuthServer and MyAuthServer2 in such  a wasy so that first oauth2 server generate jwt token and second oauth2 server generate opaque token.
+- Make configuration change in Resource server so that if in header it finds ```auth_type=jwt``` it makes use to JWTAuthenticationProvider else use OpaqueTokenAuthenticationProvider.
+- Now generate opaque and non-opaque token and try to access the resource with both of the token one by one. If token is valid, you should be able to get the string response.
