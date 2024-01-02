@@ -2,8 +2,8 @@
 # Spring Boot Security
 # Table of Contents
 - [Basic](#basic)
-  - [CSRF Protection](#csrf-Protection) -- 001-csrf-and-cors
-  - [CORS Protection](#cors-protection) -- 001-csrf-and-cors
+  - [CSRF Protection](#csrf-Protection) -- 000-csrf-and-cors
+  - [CORS Protection](#cors-protection) -- 000-csrf-and-cors
   - [001 Security Basic](#001-security-basic)-- Authentication, Authorization
  
 # Basic
@@ -22,7 +22,7 @@
     ```java
      httpSecurity.csrf(configurer->configurer.ignoringRequestMatchers("/test/**"));
       
- 
+ ## CORS Protection
 ## 001 Security Basic
 <p>Authentication and Authorization are security that we apply on our applications. Authentication is used to identify who u are? and authorization is used to v</p>
 
