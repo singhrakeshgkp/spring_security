@@ -22,7 +22,7 @@
     ```java
      httpSecurity.csrf(configurer->configurer.ignoringRequestMatchers("/test/**"));
       
-  - Following code will  disable the CSRF for certain pattern.
+ 
 ## 001 Security Basic
 <p>Authentication and Authorization are security that we apply on our applications. Authentication is used to identify who u are? and authorization is used to v</p>
 
