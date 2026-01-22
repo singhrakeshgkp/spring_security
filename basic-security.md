@@ -34,4 +34,12 @@
   Access-Control-Allow-Headers: Content-Type
 
   ```
-  only then real request is sent
+  only then the real request is sent
+
+
+
+  ## Implementation
+
+  ### Without Spring boot security
+  ### With Spring boot security
+  
