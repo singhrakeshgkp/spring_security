@@ -2,6 +2,7 @@
 # Spring Boot Security
 # Table of Contents
 - [Basic](#basic)
+  - [Basic Security](/basic-security.md)
   - [001 Security Basic](#001-security-basic)-- Authentication, Authorization
  
 # Basic
@@ -20,3 +21,4 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 - Create a new spring boot application with web, security dependency, define a endpoint ```/security-test```, start the application, try to access the defined endpoint. Observe the response, it will be 401 unauthorized response.
 - Provide the user name as ``user``` and password from intellij console to postman basic auth section. U should be able to access the endpoint.
    
+
