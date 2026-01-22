@@ -41,5 +41,23 @@
   ## Implementation
 
   ### Without Spring boot security
+  - Create a simple spring boot application running on port 8181
+  - Create a get endpoint (/test), 
+  - Try to access above endpoint from any web application, for testing we have created web-uiapp react application running on port 5173. Using this application try to access ```/test``` or any other endpoint.
+  - If u see browser console you will see ```Access to XMLHttpRequest at 'http://localhost:8181/test' from origin 'http://localhost:5173' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.``` error.
+  - To fix above issue, Create configuration class ```CorsConfig``` and define one bean in it.
+  - Run application and check network in your browser you should be able to see response header very similar as shown below.
+    ```
+    access-control-allow-credentials true
+    access-control-allow-origin http://localhost:5173
+    connection keep-alive
+    content-length 47
+    content-type application/json
+    date Thu, 22 Jan 2026 22:21:10 GMT
+    keep-alive timeout=60
+    vary Origin
+    vary Access-Control-Request-Method
+    vary Access-Control-Request-Headers
+    ```
   ### With Spring boot security
   
