@@ -39,7 +39,7 @@
 
 
   ## Implementation
-
+  - We can define Cors at controller level or In central place such as in some config file.
   ### Without Spring boot security
   - Create a simple spring boot application running on port 8181
   - Create a get endpoint (/test), 
@@ -60,4 +60,13 @@
     vary Access-Control-Request-Headers
     ```
   ### With Spring boot security
-  
+
+
+
+  ### Understanding Property what we configured in CorsConfig
+    ``` registry.addMapping("/**")  ----> the cors config apply for which resource(/**) all resource, (/abc) applicable for abc endpoint only if u try to access         /test you will get error localhost:7173 has been blocked by Cors policy.
+       .allowedOrigins("http://localhost:5173/") ---> List of origin which is allowed
+       .allowedMethods("GET","POST")   ---> List of allowed method
+       .allowedHeaders("*") ---> allowed all headers in request, was it .allowedHeaders("X-Custom-Header"), you could pass only X-Custom-Headers + Default Header what browsers passes like content type, ....etc
+       .allowCredentials(true);  --->
+    ```
