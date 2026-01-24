@@ -15,9 +15,14 @@ public class SecurityBasicApplication {
 }
 
 @RestController
-class SecurityController{
-	@GetMapping("/security-test")
+class TestController{
+	@GetMapping("/test")
 	public String test(){
-		return "welcome to spring security";
+		return "Test -- CORS Browser based implemented security";
+	}
+
+	@GetMapping("/abc")
+	public String abc(){
+		return "ABC -- CORS Browser based implemented security";
 	}
 }

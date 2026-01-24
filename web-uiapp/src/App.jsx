@@ -8,7 +8,13 @@ function App() {
   const handleClick = async () => {
     setLoading(true);
     try{
-      const res = await axios.get("http://localhost:8181/security-test");
+      const res = await axios.get("http://localhost:8181/abc",{
+      headers: {
+        "X-Custom-test-Header": "my-custom-value" // triggers OPTIONS preflight
+      },
+      withCredentials: true  // send cookies/session
+    });
+
       const result = res.data;
       setData(result);
     }catch(error){
