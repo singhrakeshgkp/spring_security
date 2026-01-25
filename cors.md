@@ -1,3 +1,9 @@
+# Table Of contents
+- [CORS](#CORS)
+  - [When you will not get cors error](#When-you-will-not-get-cors-error)
+  - [Why CORS is required?](#Why-CORS-is-required?)
+
+
 ## CORS
 ### CORS - Stand for Cross Origin Request Sharing
 - CORS is a security feature implemented by browsers.
@@ -108,3 +114,9 @@ curl 'http://localhost:8181/abc' \
   -H 'sec-ch-ua-mobile: ?0' \
   -H 'sec-ch-ua-platform: "macOS"'
 ```
+
+## Understanding response Headers
+
+- Vary: Origin → cache must not share this response across different frontend domains
+- Vary: Access-Control-Request-Method → cache must not share response for different methods
+- Vary: Access-Control-Request-Headers → cache must not share response if different custo
