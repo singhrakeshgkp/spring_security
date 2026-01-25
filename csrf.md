@@ -19,6 +19,7 @@
 
 ## Why CSRF is enabled by default in spring?
 <p> Because spring assumes that you are building browser app with cookes and session </p>
+
 ## When to use CSRF Protection
 - CSRF works only when
   - Authentication stored in cookies
