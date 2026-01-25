@@ -19,11 +19,17 @@
 - Before CORS browsers already had SOP meaning a web page can only read responses from same origin (origin = Protocol + Domain + Port)
 
 ## Preflight Requests (Options)
-- For dangerous operation (Post, Put, Delete) Browser first sends following data
+- A preflight options request happens when browser thinks request is non simple
+- **Conditions for preflight request**
+  - Method is not Get, Post, Head
+  - OR Content Type is not one of
+     - text/plain
+     - x-www-form-urlencoded
+     - multipart/form-data
+  - OR Request includes custom header The browser decides before sending the real request whether it needs a preflight.
   ```
   OPTIONS /api/data
   Origin: https://app.company.com
-
   ```
 - Server replies
   ```
@@ -37,7 +43,7 @@
 
   ## Implementation
   - We can define Cors at controller level or In central place such as in some config file.
-  ### Without Spring boot security
+  ### Without Spring boot security (Branch name  '00-sbsicsecurity-1-cors1)
   - Create a simple spring boot application running on port 8181
   - Create a get endpoint (/test), 
   - Try to access above endpoint from any web application, for testing we have created web-uiapp react application running on port 5173. Using this application try to access ```/test``` or any other endpoint.
@@ -56,14 +62,15 @@
     vary Access-Control-Request-Method
     vary Access-Control-Request-Headers
     ```
-  ### With Spring boot security
-
-
+  ### With Spring boot security (Branch name  '00-sbsicsecurity-1-cors2)
+  - Add Spring Boot security dependency
+  - Create new class SpringSecurityConfig and define SecurityFilterChain Bean and CorsConfigurationSource Bean.
+  - **Note:- ** With spring boot 4.0.2 i was getting cors issue in prefliht request, solution is to name your cors bean method ```corsConfigurationSource``` it worked. Previously i had used ```configurationSource``` with this method name it did not worked as request for not reaching to till cors, spring security was rejecting it.
 
   ### Understanding Property what we configured in CorsConfig
     ``` registry.addMapping("/**")  ----> the cors config apply for which resource(/**) all resource, (/abc) applicable for abc endpoint only if u try to access         /test you will get error localhost:7173 has been blocked by Cors policy.
        .allowedOrigins("http://localhost:5173/") ---> List of origin which is allowed
        .allowedMethods("GET","POST")   ---> List of allowed method
        .allowedHeaders("*") ---> allowed all headers in request, was it .allowedHeaders("X-Custom-Header"), you could pass only X-Custom-Headers + Default Header what browsers passes like content type, ....etc
-       .allowCredentials(true);  --->
+       .allowCredentials(true);  ---> 
     ```
