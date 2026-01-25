@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Transfer Money</title>
+</head>
+
+<body>
+
+    <h2>Bank Transfer</h2>
+
+    <form th:action="@{/transfer-money}" method="post">
+        <div>
+            <label>Amount:</label>
+            <input type="number" name="amount" required />
+        </div>
+
+        <div>
+            <label>Currency:</label>
+            <select name="currency">
+                <option value="INR">INR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </div>
+
+        <button type="submit">Transfer</button>
+    </form>
+
+</body>
+
+</html>
