@@ -3,7 +3,7 @@
   - [When you will not get cors error](#When-you-will-not-get-cors-error)
   - [When you will not get cors error](#When-you-will-not-get-cors-error)
   - [Why CORS is required?](#Why-CORS-is-required)
-  - [SOP (Same Origin Policy)](#SOP)
+  - [SOP (Same Origin Policy)](#SOP-(Same Origin Policy))
 
 
 ## CORS
