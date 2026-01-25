@@ -12,7 +12,9 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
-        .csrf(csrf -> csrf.disable())   // dont do this, if developing cookies and session based app
+        .csrf(csrf -> csrf
+            .ignoringRequestMatchers("/login") // CSRF not required on login
+        )
         .authorizeHttpRequests(auth -> auth
             .anyRequest().authenticated()
         ).formLogin(Customizer.withDefaults());
