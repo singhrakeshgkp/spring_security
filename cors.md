@@ -66,6 +66,9 @@
   - Add Spring Boot security dependency
   - Create new class SpringSecurityConfig and define SecurityFilterChain Bean and CorsConfigurationSource Bean.
   - **Note:- ** With spring boot 4.0.2 i was getting cors issue in prefliht request, solution is to name your cors bean method ```corsConfigurationSource``` it worked. Previously i had used ```configurationSource``` with this method name it did not worked as request for not reaching to till cors, spring security was rejecting it.
+  - Now while testing make sure if you are doing following thing
+    - http.httpBasic(Customizer.withDefaults()); is present in your security filter if testing with basic authentication
+    - you are passing updaed password, here we have used basic auth and default username ```user``` and passowrd copied from idea intellij console.
 
   ### Understanding Property what we configured in CorsConfig
     ``` registry.addMapping("/**")  ----> the cors config apply for which resource(/**) all resource, (/abc) applicable for abc endpoint only if u try to access         /test you will get error localhost:7173 has been blocked by Cors policy.
@@ -75,3 +78,33 @@
        .allowCredentials(true);  ---> Browser is allowed to include credentials in cross origin requests.
                                       here credentials => Cookies, Http Authentication Headers, Client TLS Certificate....etc anything that identify user session
     ```
+
+
+## Curls
+1. To test preflight
+   ```
+    curl -i -X OPTIONS http://localhost:8181/abc \
+ -H "Origin: http://localhost:5173" \
+ -H "Access-Control-Request-Method: GET"
+   ```
+
+2. To test api
+```
+
+curl 'http://localhost:8181/abc' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Basic dXNlcjowMWM2MWYyNi05YzNkLTRkNTktYjk5Ny1kNmM4MzA3MzVlNmU=' \
+  -H 'Connection: keep-alive' \
+  -b '__next_hmr_refresh_hash__=186; JSESSIONID=ABC2A6F3861097BEB52EF7DABE2E2206' \
+  -H 'Origin: http://localhost:5173' \
+  -H 'Referer: http://localhost:5173/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: same-site' \
+  -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36' \
+  -H 'X-Custom-test-Header: my-custom-value' \
+  -H 'sec-ch-ua: "Chromium";v="142", "Google Chrome";v="142", "Not_A Brand";v="99"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "macOS"'
+```
