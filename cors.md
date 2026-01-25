@@ -4,6 +4,10 @@
   - [When you will not get cors error](#When-you-will-not-get-cors-error)
   - [Why CORS is required?](#Why-CORS-is-required)
   - [SOP (Same Origin Policy)](#SOP-Same-Origin-Policy)
+  - [Preflight Requests (Options)](#Preflight Requests-Options)
+  - [Implementation](#Implementation)
+  - [Curls](#Curls)
+  - [Understanding response Headers](#Understanding-response-Headers)
 
 
 ## CORS
