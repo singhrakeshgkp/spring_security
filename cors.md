@@ -84,8 +84,8 @@
 1. To test preflight
    ```
     curl -i -X OPTIONS http://localhost:8181/abc \
- -H "Origin: http://localhost:5173" \
- -H "Access-Control-Request-Method: GET"
+     -H "Origin: http://localhost:5173" \
+     -H "Access-Control-Request-Method: GET"
    ```
 
 2. To test api
