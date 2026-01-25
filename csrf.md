@@ -3,7 +3,7 @@
   - [Spring security protects against CSRF](#Spring-security-protects-against-CSRF)
   - [When to use CSRF Protection](#When-to-use-CSRF-Protection)
   - [Why CSRF is enabled by default in spring?](#Why-CSRF-is-enabled-by-default-in-spring)
-  - [What if CSRF is not enabled?](What-if-CSRF-is-not-enabled)
+  - [What if CSRF is not enabled?](#What-if-CSRF-is-not-enabled)
 
 
 # CSRF
