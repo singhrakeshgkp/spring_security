@@ -12,7 +12,11 @@ function App() {
       headers: {
         "X-Custom-test-Header": "my-custom-value" // triggers OPTIONS preflight
       },
-      withCredentials: true  // send cookies/session
+      auth: {
+        username: "user",
+        password: "01c61f26-9c3d-4d59-b997-d6c830735e6e"
+      },
+      withCredentials: true  // is only needed if using session cookies, For Basic Auth, you don’t strictly need withCredentials
     });
 
       const result = res.data;
