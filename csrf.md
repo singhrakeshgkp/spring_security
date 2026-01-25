@@ -32,6 +32,7 @@
 <p> Any malicious user will be able to trick you and make request on your behalf. ex. you may get html form in email, image link etc, when you click on that it may trigger/send req. if u already logged in your browser automatically include session data this way some malicious user will be able to access your protect resource. </p>
 
 ### Demonstrate how malicious script/html can trick
+#### Branch Name 00-sbasicsecurity-1-csrf1
 - Create spring boot application with spring web, spring security, lombok and thymleaf dependencies
 - Create SpringSecurityConfig class, disable csrf.
 - create one controller and two methods /transfer-money Get Method and /transfer-money post endpoint.
@@ -40,6 +41,7 @@
 - Now try to opne malicious.html in browser and submit form you will same with this form even you will be able to trafer money, to avoid this kind of valunerabilitity we can get rid by enabling csrf protection
 
 ### Demonstrate how csrf can restrict malicious script/html
+#### Branch Name 00-sbasicsecurity-1-csrf2
 - Now enable csrf
 - include following hidden input in transfer.html file
   ```
@@ -47,5 +49,5 @@
          th:name="${_csrf.parameterName}"
          th:value="${_csrf.token}" />
   ```
-
+- Now test using both file using inbuilt transfer.html and malicious.html file, you will see with inbuilt html u will get expected result while with malicious.html file u will get 403 forbidden error
 
