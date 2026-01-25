@@ -72,5 +72,6 @@
        .allowedOrigins("http://localhost:5173/") ---> List of origin which is allowed
        .allowedMethods("GET","POST")   ---> List of allowed method
        .allowedHeaders("*") ---> allowed all headers in request, was it .allowedHeaders("X-Custom-Header"), you could pass only X-Custom-Headers + Default Header what browsers passes like content type, ....etc
-       .allowCredentials(true);  ---> 
+       .allowCredentials(true);  ---> Browser is allowed to include credentials in cross origin requests.
+                                      here credentials => Cookies, Http Authentication Headers, Client TLS Certificate....etc anything that identify user session
     ```
