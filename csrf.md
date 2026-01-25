@@ -29,4 +29,23 @@
   - basic auth 
 
 ## What if CSRF is not enabled?
-<p> Any malicious user will be able to trick you and make request on your behalf.  </p>
+<p> Any malicious user will be able to trick you and make request on your behalf. ex. you may get html form in email, image link etc, when you click on that it may trigger/send req. if u already logged in your browser automatically include session data this way some malicious user will be able to access your protect resource. </p>
+
+### Demonstrate how malicious script/html can trick
+- Create spring boot application with spring web, spring security, lombok and thymleaf dependencies
+- Create SpringSecurityConfig class, disable csrf.
+- create one controller and two methods /transfer-money Get Method and /transfer-money post endpoint.
+- create transfer.html file in your project and malicious.html in outside project
+- run application, login and try to transfer money. You will see ```transferred``` message on server console
+- Now try to opne malicious.html in browser and submit form you will same with this form even you will be able to trafer money, to avoid this kind of valunerabilitity we can get rid by enabling csrf protection
+
+### Demonstrate how csrf can restrict malicious script/html
+- Now enable csrf
+- include following hidden input in transfer.html file
+  ```
+    <input type="hidden"
+         th:name="${_csrf.parameterName}"
+         th:value="${_csrf.token}" />
+  ```
+
+
