@@ -30,7 +30,7 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 ### Authenticate user with InMemory credential
 #### Branch Name - 00-sbasicsecurity-3-1
 - Create a security config class, in this class config user details service bean with inmemory cred and password encoder bean. test from postman with the inmemory cred.
-- [Diagram](/security-basic/003-security-basic.png)
+- [Diagram](/security-basic/00-sbasicsecurity-3-1.png)
   - in the diagram filter implements HttpBasicAuthentication which delegates this to an object called AuthenticationManager, delegatates this(AuthMgr) to an object Called AuthenticationProvider.
   - And finally AuthenticationProvider use UserDetialsService and PasswordEncoder.
   - We have configured UserDetailsService and PasswordEncoder bean only other beans such as AuthenticationManager, AuthenticationProvider... etc preconfigured by spring boot.
