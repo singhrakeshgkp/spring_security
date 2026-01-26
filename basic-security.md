@@ -7,9 +7,10 @@
   - 00-sbasicsecurity-2-csrf2 ---> Application with CSRF enabled
 - [Authentication and Authorization](#Authentication-and-authorization)
   - [Authenticate user with InMemory credential](#Authenticate-user-with-InMemory-credential)
+  - [Authenticate user with DB Credential](#Authenticate-user-with-db-credential)
 
 
-## Authentication and Authorization
+# Authentication and Authorization
 - **Authentication** = Who are you? (Authentication is the process of verifying identity.)
 - **Authorization** = What are you allowed to do? (Authorization is the process of checking permissions.)
 
@@ -35,3 +36,9 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
   - in the diagram filter implements HttpBasicAuthentication which delegates this to an object called AuthenticationManager, delegatates this(AuthMgr) to an object Called AuthenticationProvider.
   - And finally AuthenticationProvider use UserDetialsService and PasswordEncoder.
   - We have configured UserDetailsService and PasswordEncoder bean only other beans such as AuthenticationManager, AuthenticationProvider... etc preconfigured by spring boot.
+ 
+## Authenticate user with DB Credential
+#### Branch Name - 00-sbasicsecurity-3-authentication-2
+- Add maria db, spring data jpa and lombok dependency. Configure the data source and table in maria db
+- Comment the UserDetails bean defined in SecurityConfig file. Create entity, service and repo classess.
+- run the application, try to access ```/test``` endpoint. after providing the credential u should be able to access the ```/test``` endpoint.
