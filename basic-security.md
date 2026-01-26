@@ -6,10 +6,12 @@
   - 00-sbasicsecurity-2-csrf1 ---> Risk Without CSRF
   - 00-sbasicsecurity-2-csrf2 ---> Application with CSRF enabled
 - [Authentication and Authorization](#Authentication-and-authorization)
+  - [Authenticate user with InMemory credential](#Authenticate-user-with-InMemory-credential)
 
 
 ## Authentication and Authorization
-<p>Authentication and Authorization are security that we apply on our applications. Authentication is used to identify who u are? and authorization is used to v</p>
+- **Authentication** = Who are you? (Authentication is the process of verifying identity.)
+- **Authorization** = What are you allowed to do? (Authorization is the process of checking permissions.)
 
 ```
 Role---> you are (you are admin, user, ... etc)
@@ -20,7 +22,15 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
                 prefered way of storing password is hash function.
                 
 ```
+### Default authentication 
 - Create a new spring boot application with web, security dependency, define a endpoint ```/security-test```, start the application, try to access the defined endpoint. Observe the response, it will be 401 unauthorized response.
 - Provide the user name as ``user``` and password from intellij console to postman basic auth section. U should be able to access the endpoint.
    
 
+### Authenticate user with InMemory credential
+#### Branch Name - 00-sbasicsecurity-3-1
+- Create a security config class, in this class config user details service bean with inmemory cred and password encoder bean. test from postman with the inmemory cred.
+- [Diagram](/security-basic/003-security-basic.png)
+  - in the diagram filter implements HttpBasicAuthentication which delegates this to an object called AuthenticationManager, delegatates this(AuthMgr) to an object Called AuthenticationProvider.
+  - And finally AuthenticationProvider use UserDetialsService and PasswordEncoder.
+  - We have configured UserDetailsService and PasswordEncoder bean only other beans such as AuthenticationManager, AuthenticationProvider... etc preconfigured by spring boot.
