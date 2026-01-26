@@ -8,6 +8,7 @@
 - [Authentication and Authorization](#Authentication-and-authorization)
   - [Authenticate user with InMemory credential](#Authenticate-user-with-InMemory-credential)
   - [Authenticate user with DB Credential](#Authenticate-user-with-db-credential)
+  - [Authority Based Authentication](#authority-based-authentication)
 
 
 # Authentication and Authorization
@@ -42,3 +43,15 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 - Add maria db, spring data jpa and lombok dependency. Configure the data source and table in maria db
 - Comment the UserDetails bean defined in SecurityConfig file. Create entity, service and repo classess.
 - run the application, try to access ```/test``` endpoint. after providing the credential u should be able to access the ```/test``` endpoint.
+
+## Authority Based Authentication
+### Branch Name - 00-sbasicsecurity-3-authentication-3
+- Create ```authorities``` and ```customers_authorities``` tables and its corresponding entity, define ORM mappings.
+- Crate ```CustomerAuthority``` Wrapper class and wrap authority in it.
+- Add the following code in ```getAuthorities``` method of ```CustomerCredential.java``` class
+  ```
+   return customer.getAuthorities()
+        .stream()
+        .map(CustomerAuthority::new)
+        .collect(Collectors.toList());
+  ```
