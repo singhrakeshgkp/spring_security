@@ -20,25 +20,13 @@ public class SecurityBasicApplication {
 
 }
 
-@Controller
+@RestController
 class TestController{
 
 
-	@GetMapping("/transfer-money")
-	public String transerMoney(){
-		return "transfer.html";
+	@GetMapping("/greet")
+	public String greet(){
+		return "Welcome to this session";
 	}
-	@PostMapping(value = "/transfer-money")
-	@ResponseBody
-	public String transfer(@ModelAttribute MoneyTransferReq moneyTransferReq){
-		System.out.println(moneyTransferReq.toString());
-		return "transferred";
-	}
-}
-
-@Data
-class MoneyTransferReq{
-	private int amount;
-	private String currency;
 
 }
