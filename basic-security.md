@@ -27,7 +27,7 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 - Provide the user name as ``user``` and password from intellij console to postman basic auth section. U should be able to access the endpoint.
    
 
-### Authenticate user with InMemory credential
+## Authenticate user with InMemory credential
 #### Branch Name - 00-sbasicsecurity-3-authentication-1
 - Create a security config class, in this class config user details service bean with inmemory cred and password encoder bean. test from postman with the inmemory cred.
 - [Diagram](/diagram1.png)
