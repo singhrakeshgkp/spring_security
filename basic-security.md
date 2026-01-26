@@ -9,6 +9,8 @@
   - [Authenticate user with InMemory credential](#Authenticate-user-with-InMemory-credential)
   - [Authenticate user with DB Credential](#Authenticate-user-with-db-credential)
   - [Authority Based Authentication](#authority-based-authentication)
+  - [Role and authority based authorization](Role-and-authority-based-authorization)
+  - [Custom Filter](#custom-filter)
 
 
 # Authentication and Authorization
@@ -55,3 +57,21 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
         .map(CustomerAuthority::new)
         .collect(Collectors.toList());
   ```
+## Role and authority based authorization
+### Branch Name - 00-sbasicsecurity-3-authentication-4  -----pending
+
+
+
+## Custom Filter
+### Branch Name - 00-sbasicsecurity-4-filter-1
+<p> 
+  Implement Custom Filter,AM(Authentication Manager),AP(Authentication, Provider) and Authenticate the request using secret from header instead of username and password. 
+</p>
+
+  - Configure ```SecurityFilterChain``` bean in ```SecurityConfig``` class
+  - Create new ```CustomAuthenticationFilter``` class and inject that bean in ```SecurityConfig``` class
+  - Configure the ```CustomAuthenticationFilter``` at index of 
+    ```UsernamePasswordAuthenticationFilter.class```
+  - In custom filter class configure custom ```AM``` and then create Create ```CustomAuthentication and CustomAuthenticationProvider``` class.
+  - run the applicationn and try to access ```/security-test``` resource without ```key``` header. You will get 403 forbidden error
+  - Now pass the header and correct key value, this time u will be able to access the resource
