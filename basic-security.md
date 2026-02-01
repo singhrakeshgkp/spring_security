@@ -63,6 +63,7 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 
 
 ## Custom Filter
+- [diagram](/filter.png)
 ### Branch Name - 00-sbasicsecurity-4-filter-1
 <p> 
   Implement Custom Filter,AM(Authentication Manager),AP(Authentication, Provider) and Authenticate the request using secret from header instead of username and password. 
