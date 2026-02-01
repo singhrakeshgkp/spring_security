@@ -10,7 +10,8 @@
   - [Authenticate user with DB Credential](#Authenticate-user-with-db-credential)
   - [Authority Based Authentication](#authority-based-authentication)
   - [Role and authority based authorization](Role-and-authority-based-authorization)
-  - [Custom Filter, AM,AP,](#custom-filter)
+  - [Custom Filter,Authentication Manager,AuthenticationProvider](#Custom-Filter-Authentication-Manager-AuthenticationProvider)
+  - [Custom APIKeyFilter, AM, AP](#custom-apikeyfilter-AM-AP)
 
 
 # Authentication and Authorization
@@ -62,7 +63,7 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 
 
 
-## Custom Filter
+## Custom Filter,Authentication Manager,AuthenticationProvider
 - [diagram](/filter.png)
 ### Branch Name - 00-sbasicsecurity-4-filter-1
 <p> 
@@ -76,3 +77,5 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
   - In custom filter class configure custom ```AM``` and then create Create ```CustomAuthentication and CustomAuthenticationProvider``` class.
   - run the applicationn and try to access ```/security-test``` resource without ```key``` header. You will get 403 forbidden error
   - Now pass the header and correct key value, this time u will be able to access the resource
+
+## Custom APIKeyFilter, AM, AP
