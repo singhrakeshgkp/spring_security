@@ -10,7 +10,7 @@
   - [Authenticate user with DB Credential](#Authenticate-user-with-db-credential)
   - [Authority Based Authentication](#authority-based-authentication)
   - [Role and authority based authorization](Role-and-authority-based-authorization)
-  - [Custom Filter](#custom-filter)
+  - [Custom Filter, AM,AP,](#custom-filter)
 
 
 # Authentication and Authorization
