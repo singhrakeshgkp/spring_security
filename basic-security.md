@@ -10,7 +10,7 @@
   - [Authenticate user with DB Credential](#Authenticate-user-with-db-credential)
   - [Authority Based Authentication](#authority-based-authentication)
   - [Role and authority based authorization](Role-and-authority-based-authorization)
-  - [Custom Filter, Authentication Manager, AuthenticationProvider](#custom-filter-authentication-manager-authenticationprovider)
+  - [Custom Filter AuthenticationManager AuthenticationProvider](#custom-filter-authenticationmanager-authenticationprovider)
   - [Custom APIKeyFilter, AM, AP](#custom-apikeyfilter-AM-AP)
 
 
@@ -63,7 +63,7 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 
 
 
-## Custom Filter,Authentication Manager,AuthenticationProvider
+## Custom Filter AuthenticationManager AuthenticationProvider
 - [diagram](/filter.png)
 ### Branch Name - 00-sbasicsecurity-4-filter-1
 <p> 
