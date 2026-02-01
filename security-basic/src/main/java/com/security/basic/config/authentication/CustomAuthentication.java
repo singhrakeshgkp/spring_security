@@ -1,13 +1,11 @@
-package com.security.basic.config;
+package com.security.basic.config.authentication;
 
 import java.util.Collection;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Component;
 
 @AllArgsConstructor
 @Getter
