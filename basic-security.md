@@ -11,7 +11,7 @@
   - [Authority Based Authentication](#authority-based-authentication)
   - [Role and authority based authorization](Role-and-authority-based-authorization)
   - [Custom Filter AuthenticationManager AuthenticationProvider](#custom-filter-authenticationmanager-authenticationprovider)
-  - [Custom APIKeyFilter, AM, AP](#custom-apikeyfilter-AM-AP)
+  - [Custom APIKeyFilter AM And AP](#Custom-APIKeyFilter-AM-And-AP)
 
 
 # Authentication and Authorization
