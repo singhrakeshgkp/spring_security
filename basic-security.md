@@ -80,8 +80,8 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
 
 ## Custom APIKeyFilter AM And AP
 ### Branch Name - 00-sbasicsecurity-4-filter-2
-  - Configure ```ApiFilter apart from basic/default filter``` Authentifcation can be happen by either basic credential(user id+ pwd) or api key.
   - [diagram](/additionalilter.png)
+  - Configure ```ApiFilter apart from basic/default filter``` Authentifcation can be happen by either basic credential(user id+ pwd) or api key.
   - Testing
     - try to access ```/greet``` endpoint with api key, u should be able to access the resource
     - Now remove api key and try to access same resource using user id and password, resource should be accessible here as well.
