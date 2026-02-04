@@ -20,13 +20,3 @@ public class SecurityBasicApplication {
 
 }
 
-@RestController
-class TestController{
-
-
-	@GetMapping("/greet")
-	public String greet(){
-		return "Welcome to this session";
-	}
-
-}
