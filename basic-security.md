@@ -12,6 +12,7 @@
   - [Role and authority based authorization](Role-and-authority-based-authorization)
   - [Custom Filter AuthenticationManager AuthenticationProvider](#custom-filter-authenticationmanager-authenticationprovider)
   - [Custom APIKeyFilter AM And AP](#Custom-APIKeyFilter-AM-And-AP)
+  - [Multiple Authentication provider](#Multiple-Authentication-provider)
 
 
 # Authentication and Authorization
@@ -86,3 +87,18 @@ HashFunction---> Input---->output  output---to input not possible but it cas ver
     - try to access ```/greet``` endpoint with api key, u should be able to access the resource
     - Now remove api key and try to access same resource using user id and password, resource should be accessible here as well.
     - In case api key or user id or password is incorrect 403 unauthorized access response should be returned by server.
+   
+
+## Multiple Authentication provider
+### Branch 00-sbasicsecurity-5-multiple-ap-1
+
+- Configure OtpAuthenticationProvider and UserNameAndPasswordAuthenticationProvider.
+- Create two entity ```user and otp```
+- write logic to Generate otp and authentication user.
+- Testing
+  - Use part1 request from postman to validate with username and password (pass cred in header)
+  - check otp table, otp should be saved for this user.
+  - Use part to request from postman, now pass username and otp
+  - check response header authorization code should be present.
+### Branch 00-sbasicsecurity-5-multiple-ap-2
+
