@@ -1,5 +1,6 @@
 
 ## what is SSL/TLS
+- [Diagram](./ssl.png)
 - SSL is a security protocol that creates an encrypted connection between a client (like web browser) and server (like your service/website). Think of it as a secure tunnel through which data travel safely
 
 ## The problem SSL solves
