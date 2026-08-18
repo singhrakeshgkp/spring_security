@@ -52,5 +52,10 @@
  
 ## How to check hello message from browser to server
 1. visit ```chrome://net-export/``` click on start logging to disk
-2. dsfj
+2. in another tab open any https website
+3. now click on stop logging
+4. Go to ```https://netlog-viewer.appspot.com```, choose logging file----> from left menu select events----> put ```SSL_HANDSHAKE_MESSAGE``` in top search box---> click on any entry and search hello text.
+
+
+
        
