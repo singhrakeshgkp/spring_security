@@ -13,7 +13,7 @@
    - What are the possible grant types?
    - how does the resource server validate and get the data with the access token?
 ### Grant Types
-- **Authorization Code(Grant Type)**
+- **1. Authorization Code(Grant Type)**
 - **There are two Flow**
   - **PKCE (Proof Key for Code Exchange)**
     - [diagram](/oauth2-authorizationcode-with-pkce.png)
@@ -29,7 +29,7 @@
    - Client will send authorization code + client cred to auth server to get access token
    - Auth server will send back access token to client.
  
-- Client Credentials [diagram](/client-credentials.png)
+- **2. Client Credentials(grant Type)** [diagram](/client-credentials.png)
    - In this type of grant type there is no user intraction
    - client send client id and secret to auth server
    - auth server returns the access token to client
