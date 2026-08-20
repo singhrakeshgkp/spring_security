@@ -13,7 +13,7 @@
    - What are the possible grant types?
    - how does the resource server validate and get the data with the access token?
 ## Grant Types
-### Authorization Code(Grant Type)
+### Grant Type -> Authorization Code
 - **There are two Flow**
   - **PKCE (Proof Key for Code Exchange)**
     - [diagram](/oauth2-authorizationcode-with-pkce.png)
@@ -27,15 +27,17 @@
    - Client will send authorization code + client cred to auth server to get access token
    - Auth server will send back access token to client.
  
-  ### Client Credentials(grant Type)[diagram](/client-credentials.png)
+  ### Grant Type -> Client Credentials [diagram](/client-credentials.png)
    - In this type of grant type there is no user intraction
    - client send client id and secret to auth server
    - auth server returns the access token to client
-- Refresh token [diagram](/oauth2-refresh-token.png)
+ ### Grant Type ->  Refresh token [diagram](/oauth2-refresh-token.png)
    - user send request to client
    - client request for token using refresh token
    - auth server send access token and refresh token
-### How does resource server validate token
+### Grant Type--> Password (deprecated as client was able to see credential)
+
+## How does resource server validate token
 - Token could be of two types
   - Opaque---> this kind of token do not contains any data.
   - Non Opaque----> This kind of token contains data. ex JWT is the example of non opaque token
