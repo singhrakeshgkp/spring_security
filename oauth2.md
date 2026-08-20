@@ -7,21 +7,19 @@
   - [PKCE](#pkce)
   - [Creating Oauth2 Server and generating token](#creating-oauth2-server-and-generating-token)  -- 010-security-oauth2-authserver
 
-## Oauth2
+# Oauth2
 - Basic [Diagram](/oauth2-basic.png)
 - If u see the above diagram two questions arises which are below.
    - What are the possible grant types?
    - how does the resource server validate and get the data with the access token?
-### Grant Types
-- **1. Authorization Code(Grant Type)**
+## Grant Types
+### Authorization Code(Grant Type)
 - **There are two Flow**
   - **PKCE (Proof Key for Code Exchange)**
     - [diagram](/oauth2-authorizationcode-with-pkce.png)
   - **Non PKCE**
      -  [diagram](/oauth2-authorizationcode.png)
    
-
-
    - user try to do something
    - request will go to client and then client will redirect the user to auth server login page with redirect url.
    - user will provide the login details and send the request, request will go to auth server
@@ -29,7 +27,7 @@
    - Client will send authorization code + client cred to auth server to get access token
    - Auth server will send back access token to client.
  
-- **2. Client Credentials(grant Type)** [diagram](/client-credentials.png)
+  ### Client Credentials(grant Type)[diagram](/client-credentials.png)
    - In this type of grant type there is no user intraction
    - client send client id and secret to auth server
    - auth server returns the access token to client
