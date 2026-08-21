@@ -38,7 +38,7 @@
 
 3. run server and construct url similar to below using client id, pkce code challenge (can be generated from online tool), redirect url.....etc
 4. ```http://localhost:8080/oauth2/authorize?response_type=code&client_id=abc&scope=openid&redirect_uri=https://spring.io/authtest&code_challenge=9NJRWMzdgsJXkFWwRU79HtmBqeZw0tj_lwfx-oEwrYY&code_challenge_method=S256```
-5. Paste above url in browser, login with user credential---> redirect on given redirect_url with code (authorization code). copy authorization and use it with following curl command
+5. Paste above url in browser, login with user credential---> redirect on given redirect_url with code (authorization code). copy authorization and use it with following curl command you will be able to generate jwt token
 ``` postman request POST 'localhost:8080/oauth2/token' \
   --header 'Cookie: JSESSIONID=1BFD96ED09C0F54C4FCF0A16E796A6B7' \
    --form 'client_id=abc' \
@@ -47,3 +47,5 @@
    --form 'code=d1LN49BqjvFWmamUd0mMBVugdtYQjWG0A2a4rrvGK6L-woSN-NqzTFpRo5wMmHBVPA-3QestLhrarBP-2o_60z03mvEfNcgMmh1O47w9pZ14_FPgmJHJiCZj2Pqkuacp' \
    --form 'code_verifier=singh' 
 ```
+5. 
+6. 
