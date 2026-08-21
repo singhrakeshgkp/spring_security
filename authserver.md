@@ -16,7 +16,6 @@
      .clientAuthenticationMethod(ClientAuthenticationMethod.NONE)
   ```
 
-  - 
   ```
      @Bean
   public RegisteredClientRepository registeredClientRepository(PasswordEncoder passwordEncoder){
