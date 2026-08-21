@@ -6,6 +6,7 @@
 
 # With PKCE
 #### Note---> Generated authorization code can be used only once no matter if request fail or pass. 
+- In PKCE flow we will use code challenge and code verifier with client id , we will not use client secret.
 1. Create new spring boot application with spring web and oauth2 server dependency
 2. Configure RegisteredClientRepository bean as shown below, since its PKCE consider following things
   ```
