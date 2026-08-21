@@ -5,8 +5,11 @@
  
 
 # With PKCE
+
 #### Note---> Generated authorization code can be used only once no matter if request fail or pass. 
 - In PKCE flow we will use code challenge and code verifier with client id , we will not use client secret.
+- **Code Verifier**---> Random string, kind of secret key generated every time before login process
+- **Code challenge** ----> Transformed version of code verifier, hashes it using the SHA-256 cryptographic algorithm. Because it is a one-way hash, someone who sees the challenge cannot reverse-engineer it to figure out your verifier.
 1. Create new spring boot application with spring web and oauth2 server dependency
 2. Configure RegisteredClientRepository bean as shown below, since its PKCE consider following things
   ```
