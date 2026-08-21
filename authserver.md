@@ -5,6 +5,7 @@
  
 
 # With PKCE
+#### Note---> Generated authorization code can be used only once no matter if request fail or pass. 
 1. Create new spring boot application with spring web and oauth2 server dependency
 2. Configure RegisteredClientRepository bean as shown below, since its PKCE consider following things
   ```
