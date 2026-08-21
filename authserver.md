@@ -1,10 +1,17 @@
 
 # Implementation
 - OAuthServer
-  - [With PKCE](#withpkce)
+  - [JWT](#jwt)
+  - [Generate JWT Token using PKCE](#generate-jwt-token-using-pkce)
+  
  
-
-# With PKCE
+# JWT
+- JSON web token, it contains three part
+  - **Header** --> Contains metadata example type, alg (algorithm used)
+  - **Payload** --> The data claims
+  - **Signature** --> The security seal, its most crucial part because it guarantees the token integrity and authenticity, it ensures that the client or hacker hasn't tampered with user role or expiration dates in payload
+- 
+# Generate JWT Token using PKCE
 
 #### Note---> Generated authorization code can be used only once no matter if request fail or pass. 
 - In PKCE flow we will use code challenge and code verifier with client id , we will not use client secret.
@@ -52,3 +59,5 @@
    --form 'code_verifier=singh' 
 ```
 
+# Important Notes
+- Jwt token must be signed
