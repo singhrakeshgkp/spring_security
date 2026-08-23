@@ -79,8 +79,8 @@
       -storepass mykeystorepass
      ```
   3. you can verify generated .p12 file using ```keytool -list -v -keystore src/main/keytool -list -v -keystore src/main/resources/auth-server.p12 -storepass mykeystorepass``` command
-  4. Now configure ```jwkSource``` beans, i have configured it in ```JwtKeyConfig.java``` file    
-
+  4. Now configure ```jwkSource``` beans, i have configured it in ```JwtKeyConfig.java``` file
+  5. Run it and restart server you will see public key and kid will be same
 
 
 # QA
