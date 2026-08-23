@@ -73,6 +73,8 @@
   - **Case 2 After restart before before client make any request with existing token to resource server, client generate new token for other user and make call to resource server**
     - When client makes call to resource server for some other use with new token, resource server will find mismatch in ```kid``` (kid in token and resource server cache), in this case resource server will make call to auth server--->get new public key---> store it in cache and validate signature. So all request with new token will success however all other request with old token will fail
     
-       
- 
+### How spring boot store kid(key id) in cache, can kid be duplicate?
+- Spring store kid(example kid=123-5jjj678) as key and Compiled Java object of public key as value.
+
+  
   
