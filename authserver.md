@@ -62,7 +62,7 @@
 ```
 
 # QA
-### what if in prod we use in-memory key pair
+### what if in prod we use in-memory key pair?
 - Since public key and private key is stored in in-memory next time when auth server restart, it will generate different public key. Resource server will not be able to validate signature of existing token which might not be expired yet.
 - **Scenario 1** ---> (1)client--Generates token access any resource--> (2) auth sever restarted-->(3) client try to do something again with token generated in step(1) in this case will request to resource server fail?
 - **Explanation Scenario 1** ---> there are two cases
