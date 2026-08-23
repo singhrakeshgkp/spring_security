@@ -64,6 +64,11 @@
 
 # Configure Custom Public and Private Key
 - Except local we always configure custom private key and public key, reason is discussed in ```QA section what if in prod we use in-memory key pair?```
+- Before configuring public key and private key, we can test in-memory public key if its chanting after server restart
+  - Access ```localhost:8080/oauth2/jwks``` endpoint restart server. if u observe response each time u restart server ```/jwks``` endpoint will return every time different ```kid```
+- Steps to configure own public key and private key is given below
+  1. gjfkg
+  2. gjfkdg    
 
 
 
