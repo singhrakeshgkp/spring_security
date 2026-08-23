@@ -3,6 +3,7 @@
 - OAuthServer
   - [JWT](#jwt)
   - [Generate JWT Token using PKCE](#generate-jwt-token-using-pkce)
+  - [Configure Custom Public and Private Key](#configure-custom-public-and-private-key)
   - [QA](#qa)
   
  
@@ -60,6 +61,11 @@
    --form 'code=d1LN49BqjvFWmamUd0mMBVugdtYQjWG0A2a4rrvGK6L-woSN-NqzTFpRo5wMmHBVPA-3QestLhrarBP-2o_60z03mvEfNcgMmh1O47w9pZ14_FPgmJHJiCZj2Pqkuacp' \
    --form 'code_verifier=singh' 
 ```
+
+# Configure Custom Public and Private Key
+- Except local we always configure custom private key and public key, reason is discussed in ```QA section what if in prod we use in-memory key pair?```
+
+
 
 # QA
 ### what if in prod we use in-memory key pair?
