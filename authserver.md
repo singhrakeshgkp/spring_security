@@ -67,8 +67,19 @@
 - Before configuring public key and private key, we can test in-memory public key if its chanting after server restart
   - Access ```localhost:8080/oauth2/jwks``` endpoint restart server. if u observe response each time u restart server ```/jwks``` endpoint will return every time different ```kid```
 - Steps to configure own public key and private key is given below
-  1. gjfkg
-  2. gjfkdg    
+  1. Generate a Private and public key using below command, .p12 contains both public key and private key.
+     ```
+      keytool -genkeypair \
+      -alias auth-server-key \
+      -keyalg RSA \
+      -keysize 2048 \
+      -validity 365 \
+      -keystore src/main/resources/auth-server.p12 \
+      -storetype PKCS12 \
+      -storepass mykeystorepass
+     ```
+  3. you can verify generated .p12 file using ```keytool -list -v -keystore src/main/keytool -list -v -keystore src/main/resources/auth-server.p12 -storepass mykeystorepass``` command
+  4. Now configure ```jwkSource``` beans, i have configured it in ```JwtKeyConfig.java``` file    
 
 
 
