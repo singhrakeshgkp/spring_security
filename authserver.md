@@ -99,7 +99,7 @@
 - Run application and test if token is generated
 
 ## Customize jwt token
-- by default in jwt token spring do not include roles/authority, to include that configure following bean
+- by default spring do not include roles/authority in jwt token, to include that configure following bean
 
   ```
     @Bean
