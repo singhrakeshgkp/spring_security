@@ -6,6 +6,7 @@
   - [Generate JWT Token using PKCE Proj abcAuthServer](#generate-jwt-token-using-pkce-proj-abcAuthServer)
     - [Configure Custom Public and Private Key](#configure-custom-public-and-private-key)
   - [Configure abcAuthServer2 Proj](#Configure-abcAuthServer2-Proj)
+    -[Customize jwt token](#customize-jwt-token)
   - [Configure Resource Server](#configure-resource-server)
   - [QA](#qa)
   
@@ -95,10 +96,14 @@
 # Configure abcAuthServer2 Proj
 ## Everything is same what we have in abcAuthServer project only changes in this abcAuthServer2 is it will not use in memory user credential, its going to use DB
 - Configured UserDtService, User entity, UserRepo, and created UserDtModel this we will be using to map our User data from DB to Spring security User model
-- Run application and test if token is geneated
+- Run application and test if token is generated
+
+## Customize jwt token
+
 
 # Configure Resource Server
-
+- Create new spring boot application with spring web, spring security and oauth2-resource server dependency.
+- 
 
 # QA
 ### what if in prod we use in-memory key pair?
