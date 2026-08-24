@@ -114,7 +114,11 @@
 
 # Configure Resource Server
 - Create new spring boot application with spring web, spring security and oauth2-resource server dependency.
-- 
+- Create ```SecurityConfig``` class and configure required filter
+- Create ```UserController``` class, add ```Authentication authentication``` Parameter in getUsers method, spring will automatically inject Authentication and u can debug , check token and other details in it.
+- now if u add debug break point in ```getUsers``` and check authentication object you will observe authorities is available in authentication-->token-->claim-->authorities but not in authentication-->authorities. To get rid of this we will copy authorities from claim section to authentication-->authorities
+  - Create ```JwtAuthenticationTokenConverter``` class and configure it in securityfilter chain example --> ``` .jwtAuthenticationConverter(new JwtAuthenticationTokenConverter())```
+  - Debug and test now.
 
 # QA
 ### what if in prod we use in-memory key pair?
