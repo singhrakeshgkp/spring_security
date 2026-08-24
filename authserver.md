@@ -3,8 +3,9 @@
 - OAuthServer
   - [Oauth2 Apis](#oauth2-apis)
   - [JWT](#jwt)
-  - [Generate JWT Token using PKCE](#generate-jwt-token-using-pkce)
-  - [Configure Custom Public and Private Key](#configure-custom-public-and-private-key)
+  - [Generate JWT Token using PKCE Proj abcAuthServer](#generate-jwt-token-using-pkce-proj-abcAuthServer)
+    - [Configure Custom Public and Private Key](#configure-custom-public-and-private-key)
+  - [Configure abcAuthServer2 Proj](Configure-abcAuthServer2-Proj)
   - [QA](#qa)
   
 # Oauth2 Apis
@@ -21,7 +22,8 @@
 - JWT must be signed.
 - When we create authserver using spring boot, spring boot auto configuration generate private key and public key (if not provided) and sign JWT token. This configuration is recommended for development purpose(limited to local). Since public and private key is in-memory so on each server restart it will be lost and client who already generated token 
 
-# Generate JWT Token using PKCE
+# Generate JWT Token using PKCE Proj abcAuthServer
+
 #### Note---> Generated authorization code can be used only once no matter if request fail or pass. 
 - In PKCE flow we will use code challenge and code verifier with client id , we will not use client secret.
 - **Code Verifier**---> Random string, kind of secret key generated every time before login process
@@ -68,7 +70,7 @@
    --form 'code_verifier=singh' 
 ```
 
-# Configure Custom Public and Private Key
+## Configure Custom Public and Private Key
 - Except local we always configure custom private key and public key, reason is discussed in ```QA section what if in prod we use in-memory key pair?```
 - Before configuring public key and private key, we can test in-memory public key if its chanting after server restart
   - Access ```localhost:8080/oauth2/jwks``` endpoint restart server. if u observe response each time u restart server ```/jwks``` endpoint will return every time different ```kid```
