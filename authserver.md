@@ -99,7 +99,17 @@
 - Run application and test if token is generated
 
 ## Customize jwt token
-
+- by default in jwt token spring do not include roles/authority, to include that configure following bean
+  ```
+    @Bean
+    public OAuth2TokenCustomizer<JwtEncodingContext> oAuth2TokenCustomizer(){
+      return  context ->  {
+        var authorities = context.getPrincipal().getAuthorities();
+        context.getClaims()
+          .claim("authorities", authorities.stream().map(authority-> authority.getAuthority()).toList());
+    };
+  }
+  ```
 
 # Configure Resource Server
 - Create new spring boot application with spring web, spring security and oauth2-resource server dependency.
