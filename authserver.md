@@ -5,7 +5,8 @@
   - [JWT](#jwt)
   - [Generate JWT Token using PKCE Proj abcAuthServer](#generate-jwt-token-using-pkce-proj-abcAuthServer)
     - [Configure Custom Public and Private Key](#configure-custom-public-and-private-key)
-  - [Configure abcAuthServer2 Proj](Configure-abcAuthServer2-Proj)
+  - [Configure abcAuthServer2 Proj](#Configure-abcAuthServer2-Proj)
+  - [Configure Resource Server](#configure-resource-server)
   - [QA](#qa)
   
 # Oauth2 Apis
@@ -89,6 +90,14 @@
   3. you can verify generated .p12 file using ```keytool -list -v -keystore src/main/keytool -list -v -keystore src/main/resources/auth-server.p12 -storepass mykeystorepass``` command
   4. Now configure ```jwkSource``` beans, i have configured it in ```JwtKeyConfig.java``` file
   5. Run it and restart server you will see public key and kid will be same
+
+
+# Configure abcAuthServer2 Proj
+## Everything is same what we have in abcAuthServer project only changes in this abcAuthServer2 is it will not use in memory user credential, its going to use DB
+- Configured UserDtService, User entity, UserRepo, and created UserDtModel this we will be using to map our User data from DB to Spring security User model
+- Run application and test if token is geneated
+
+# Configure Resource Server
 
 
 # QA
