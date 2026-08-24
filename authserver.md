@@ -100,6 +100,7 @@
 
 ## Customize jwt token
 - by default in jwt token spring do not include roles/authority, to include that configure following bean
+
   ```
     @Bean
     public OAuth2TokenCustomizer<JwtEncodingContext> oAuth2TokenCustomizer(){
