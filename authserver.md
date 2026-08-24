@@ -6,7 +6,7 @@
   - [Generate JWT Token using PKCE Proj abcAuthServer](#generate-jwt-token-using-pkce-proj-abcAuthServer)
     - [Configure Custom Public and Private Key](#configure-custom-public-and-private-key)
   - [Configure abcAuthServer2 Proj](#Configure-abcAuthServer2-Proj)
-    -[Customize jwt token](#customize-jwt-token)
+    - [Customize jwt token](#customize-jwt-token)
   - [Configure Resource Server](#configure-resource-server)
   - [QA](#qa)
   
