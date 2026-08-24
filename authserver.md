@@ -8,10 +8,11 @@
   - [QA](#qa)
   
 # Oauth2 Apis
-- ```/.well-known/openid-configuration``` provides ready to use endpoint configured by spring tools, below few important endpoint is listed
+- ```/.well-known/openid-configuration``` provides ready to use endpoint configured by spring teams, few important endpoint is listed below
   1. ```/oauth2/authorize``` ---> use to get authorization code
   2. ```/oauth2/token```----> return token ex access_token, id_token
   3. ```oauth2/jwks```----> return kid and public key, resource server uses this api to get public key and the resource server uses this public key to verify the signature of token              passed by client(applicable for non-opaque token)
+  4. if its opaque token resource server uses ```/oauth2/introspect```
 # JWT
 - JWT JSON web token, it contains three part
   - **Header** --> Contains metadata example type, alg (algorithm used)
