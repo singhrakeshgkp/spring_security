@@ -118,8 +118,8 @@
 - Create ```UserController``` class, add ```Authentication authentication``` Parameter in getUsers method, spring will automatically inject Authentication and u can debug , check token and other details in it.
 - now if u add debug break point in ```getUsers``` and check authentication object you will observe authorities is available in authentication-->token-->claim-->authorities but not in authentication-->authorities. To get rid of this we will copy authorities from claim section to authentication-->authorities
   - Create ```JwtAuthenticationTokenConverter``` class and configure it in securityfilter chain example --> ``` .jwtAuthenticationConverter(new JwtAuthenticationTokenConverter())```
-  - Debug and test now.
-    - create authorization token---> using authorization token get access token---> pass this access token to ```/users``` resource, you should be able to get users details
+  - Debug and test both resource ```/admin``` and ```/users```
+    - create authorization token---> using authorization token get access token---> pass this access token to ```/users```  resource, you should be able to get users details
 
 # QA
 ### what if in prod we use in-memory key pair?
