@@ -8,6 +8,7 @@
   - [Configure abcAuthServer2 Proj](#Configure-abcAuthServer2-Proj)
     - [Customize jwt token](#customize-jwt-token)
   - [Configure Resource Server](#configure-resource-server)
+  - [Configure Oauthserver- Opaque Token](#configure-oauthserver-opaque-token)
   - [QA](#qa)
   
 # Oauth2 Apis
@@ -121,6 +122,7 @@
   - Debug and test both resource ```/admin``` and ```/users```
     - create authorization token---> using authorization token get access token---> pass this access token to ```/users```  resource, you should be able to get users details
 
+# Configure Oauth2 Server Opaque token
 # QA
 ### what if in prod we use in-memory key pair?
 - Since public key and private key is stored in in-memory next time when auth server restart, it will generate different public key. Resource server will not be able to validate signature of existing token which might not be expired yet.
