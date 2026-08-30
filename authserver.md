@@ -123,6 +123,35 @@
     - create authorization token---> using authorization token get access token---> pass this access token to ```/users```  resource, you should be able to get users details
 
 # Configure Oauthserver Opaque Token
+- add following properties in existing configuration
+  ```
+  .tokenSettings(TokenSettings.builder()
+            .accessTokenFormat(OAuth2TokenFormat.REFERENCE) // opaque token
+            .accessTokenTimeToLive(Duration.ofHours(6))
+            .build())
+  ```
+- Configure client this client will be used to introspect token
+  ```
+     RegisteredClient beClient = RegisteredClient
+        .withId(UUID.randomUUID().toString())
+        .clientId("resource-svc-be-client")
+        .clientSecret(passwordEncoder.encode("112233"))
+        .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+        .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+        .build();
+  ```
+  - Now generate token and introspect it.
+  - Token should contains following information, to include these details we have to customize the configration
+    ```
+     {
+      "active": true,
+      "client_id": "abc",
+      "sub": "john_doe",
+      "roles": ["admin", "user"],
+      "iat": 1788114312,
+      "exp": 1788135912
+      }
+    ``` 
 # QA
 ### what if in prod we use in-memory key pair?
 - Since public key and private key is stored in in-memory next time when auth server restart, it will generate different public key. Resource server will not be able to validate signature of existing token which might not be expired yet.
