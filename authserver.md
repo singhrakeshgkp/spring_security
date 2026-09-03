@@ -9,6 +9,7 @@
     - [Customize jwt token](#customize-jwt-token)
   - [Configure Resource Server](#configure-resource-server)
   - [Configure Oauthserver Opaque Token](#configure-oauthserver-opaque-token)
+  - [Configure Client](#configure-client)
   - [QA](#qa)
   
 # Oauth2 Apis
@@ -151,7 +152,12 @@
       "iat": 1788114312,
       "exp": 1788135912
       }
-    ``` 
+    ```
+
+
+# Configure Client
+- Create new spring boot application lets say svc-client with ```security, web, client``` dependencies
+- 
 # QA
 ### what if in prod we use in-memory key pair?
 - Since public key and private key is stored in in-memory next time when auth server restart, it will generate different public key. Resource server will not be able to validate signature of existing token which might not be expired yet.
